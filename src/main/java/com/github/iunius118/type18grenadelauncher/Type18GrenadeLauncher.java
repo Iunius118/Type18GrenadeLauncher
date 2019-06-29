@@ -3,6 +3,7 @@ package com.github.iunius118.type18grenadelauncher;
 import com.github.iunius118.type18grenadelauncher.entity.Type18GrenadeEntity;
 import net.minecraft.entity.Entity;
 import net.minecraft.item.Item;
+import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.ChunkProviderServer;
@@ -50,11 +51,9 @@ public class Type18GrenadeLauncher {
                 ChunkProviderServer chunkProvider = (ChunkProviderServer) world.getChunkProvider();
 
                 if (chunkProvider.chunkExists(event.getNewChunkX(), event.getOldChunkZ())) {
-                    entity.setDead();
-
-                    if (Type18GrenadeLauncher.config.common.enableLog) {
-                        Type18GrenadeLauncher.logger.info("");
-                    }
+                    Type18GrenadeEntity grenadeEntity = (Type18GrenadeEntity) entity;
+                    grenadeEntity.setDead();
+                    grenadeEntity.logOnDead("onEnteringUnloadedChunk", new Vec3d(grenadeEntity.posX, grenadeEntity.posY, grenadeEntity.posZ));
                 }
             }
         }

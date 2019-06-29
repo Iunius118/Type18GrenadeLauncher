@@ -96,11 +96,31 @@ public class Type18GrenadeEntity extends EntityThrowable {
         this.logOnDead("onImpact", result.hitVec);
     }
 
+    @Override
+    public void onKillCommand() {
+        super.onKillCommand();
+
+        this.logOnDead("onKillCommand", new Vec3d(this.posX, this.posY, this.posZ));
+    }
+
     public void logOnDead(String string, Vec3d pos) {
+        if (!Type18GrenadeLauncher.config.common.enableLog) {
+            return;
+        }
+
+        EntityLivingBase entity = this.thrower;
+        String playerName = "???";
+
+        if (entity instanceof EntityPlayer) {
+            playerName =  entity.getName();
+        }
+
         Type18GrenadeLauncher.logger.info(
                 NAME
                 + " [" + string + "]"
-                + " at " + pos.toString() );
+                + " at " + pos.toString()
+                + " launched by " + playerName
+        );
     }
 
     @Override
@@ -158,6 +178,7 @@ public class Type18GrenadeEntity extends EntityThrowable {
                 + ", Py: " + this.posY
                 + ", Pz: " + this.posZ
                 + ", Vy: " + this.motionY
-                + ", V: " + Math.sqrt(this.motionX * this.motionX + this.motionY * this.motionY + this.motionZ * this.motionZ));
+                + ", V: " + Math.sqrt(this.motionX * this.motionX + this.motionY * this.motionY + this.motionZ * this.motionZ)
+        );
     }
 }
