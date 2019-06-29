@@ -9,6 +9,7 @@ import net.minecraft.init.SoundEvents;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumParticleTypes;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.util.math.Vec3d;
@@ -24,6 +25,7 @@ public class Type18GrenadeEntity extends EntityThrowable {
     public static final float DIRECT_DAMAGE = 40.0F;
     public static final float INITIAL_VELOCITY = 4.0F;
     public static final float INACCURACY = 1.0F;
+    public static final ResourceLocation ID = new ResourceLocation(Type18GrenadeLauncher.MOD_ID, Type18GrenadeEntity.NAME.toLowerCase());
 
     public static final String TAG_TICKS_AGE = "age";
 
