@@ -2,6 +2,7 @@ package com.github.iunius118.type18grenadelauncher.entity;
 
 import com.github.iunius118.type18grenadelauncher.Type18GrenadeLauncher;
 import com.github.iunius118.type18grenadelauncher.Type18GrenadeLauncherConfig;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.projectile.EntityThrowable;
@@ -16,30 +17,34 @@ import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.Explosion;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldServer;
+import net.minecraft.world.gen.ChunkProviderServer;
 
 public class Type18GrenadeEntity extends EntityThrowable {
     public static final String NAME = "Grenade";
+    public static final int COLOR = 0xFF5E7C16;
     public static final int FUSE_SAFETY = 2;
-    public static final int FUSE_MAX = 80;
+    public static final int FUSE_MAX = 150;
     public static final float STRENGTH = 4.0F;
     public static final float DIRECT_DAMAGE = 40.0F;
-    public static final float INITIAL_VELOCITY = 4.0F;
+    public static final float INITIAL_VELOCITY = 3.0F;
     public static final float INACCURACY = 1.0F;
     public static final ResourceLocation ID = new ResourceLocation(Type18GrenadeLauncher.MOD_ID, Type18GrenadeEntity.NAME.toLowerCase());
 
     public static final String TAG_TICKS_AGE = "age";
+    public static final String TAG_THROWER = "age";
 
     public int ticksAge = 0;
-    public boolean canDropIronIngot = true;
+    public String throwerName = "?";
 
     public Type18GrenadeEntity(World worldIn, EntityLivingBase throwerIn) {
         super(worldIn, throwerIn);
+
         this.ignoreEntity = throwerIn;
+        this.throwerName = throwerIn.getName();
     }
 
     public Type18GrenadeEntity(World worldIn) {
         super(worldIn);
-
 
         if (worldIn.isRemote) {
             // Client side
@@ -51,24 +56,34 @@ public class Type18GrenadeEntity extends EntityThrowable {
     public void onUpdate() {
         super.onUpdate();
 
-        ++this.ticksAge;
-
-        if (!this.world.isRemote) {
-            // Server side
-            this.printDebugLog();
-        } else {
-            // Client side
-            this.world.spawnParticle(EnumParticleTypes.FIREWORKS_SPARK, true, this.posX, this.posY, this.posZ, 0.0D, 0.0D, 0.0D, new int[0]);
+        if (this.isDead) {
+            return;
         }
 
-        if (!this.isDead && (this.ticksAge > this.FUSE_MAX || this.isInWater() || this.isInLava())) {
-            // Time is up or Hit water/lava
+        ++this.ticksAge;
+
+        if (Type18GrenadeLauncher.DEBUG && !this.world.isRemote) {
+            // Server side
+            this.printDebugLog();
+        }
+
+        if (this.ticksAge > this.FUSE_MAX) {
+            // Time is up
             this.onImpact(new RayTraceResult(this));
+        } else {
+            Vec3d vecStart = new Vec3d(this.posX, this.posY, this.posZ);
+            Vec3d vecEnd = new Vec3d(this.posX + this.motionX, this.posY + this.motionY, this.posZ + this.motionZ);
+            RayTraceResult raytraceresult = this.world.rayTraceBlocks(vecStart, vecEnd, true);
+
+            if (raytraceresult != null) {
+                // Hit liquid
+                this.onImpact(raytraceresult);
+            }
         }
     }
 
     @Override
-    protected void onImpact(RayTraceResult result) {
+    public void onImpact(RayTraceResult result) {
         if (!this.world.isRemote) {
             // Server side
             WorldServer world = (WorldServer) this.world;
@@ -80,54 +95,49 @@ public class Type18GrenadeEntity extends EntityThrowable {
 
                 if (this.isPermittedDamage(DamageLavel.ENTITY)) {
                     // Create explosion
-                    Explosion explosion = world.createExplosion(this.getThrower(), result.hitVec.x, result.hitVec.y, result.hitVec.z, this.STRENGTH, this.isPermittedDamage(DamageLavel.TERRAIN));
+                    Explosion explosion = world.createExplosion(this.getThrower(), result.hitVec.x, result.hitVec.y + (double) (this.height / 16.0F), result.hitVec.z, this.STRENGTH, this.isPermittedDamage(DamageLavel.TERRAIN));
                 }
+
             } else {
                 // Hit at close distance (in the very short time), deal direct damage
                 if (this.isPermittedDamage(DamageLavel.ENTITY)) {
-                    if (result.entityHit instanceof EntityPlayer) {
-                        result.entityHit.attackEntityFrom(DamageSource.causePlayerDamage((EntityPlayer) this.getThrower()), this.DIRECT_DAMAGE);
-                    } else {
-                        result.entityHit.attackEntityFrom(DamageSource.causeMobDamage(this.getThrower()), this.DIRECT_DAMAGE);
+                    Entity entity = result.entityHit;
+
+                    if (entity instanceof EntityPlayer) {
+                        entity.attackEntityFrom(DamageSource.causePlayerDamage((EntityPlayer) this.getThrower()), this.DIRECT_DAMAGE);
+
+                    } else if (entity != null) {
+                        entity.attackEntityFrom(DamageSource.causeMobDamage(this.getThrower()), this.DIRECT_DAMAGE);
                     }
                 }
             }
-        }
 
-        this.setDead();
-        this.logOnDead("onImpact", result.hitVec);
+            this.setDead();
+
+            this.logInfo("-Detonated", result.hitVec);
+        } else {
+            // Client side
+            if (result.typeOfHit == RayTraceResult.Type.ENTITY) {
+                if (result.entityHit == this) {
+                    this.setDead();
+                }
+
+            } else {
+                this.setDead();
+            }
+        }
     }
 
     @Override
     public void onKillCommand() {
         super.onKillCommand();
 
-        this.logOnDead("onKillCommand", new Vec3d(this.posX, this.posY, this.posZ));
-    }
-
-    public void logOnDead(String string, Vec3d pos) {
-        if (!Type18GrenadeLauncher.config.common.enableLog) {
-            return;
-        }
-
-        EntityLivingBase entity = this.thrower;
-        String playerName = "???";
-
-        if (entity instanceof EntityPlayer) {
-            playerName =  entity.getName();
-        }
-
-        Type18GrenadeLauncher.logger.info(
-                NAME
-                + " [" + string + "]"
-                + " at " + pos.toString()
-                + " launched by " + playerName
-        );
+        this.logInfo("-KillCommand", new Vec3d(this.posX, this.posY, this.posZ));
     }
 
     @Override
     protected float getGravityVelocity() {
-        return 0.0F;
+        return super.getGravityVelocity();
     }
 
     @Override
@@ -135,6 +145,7 @@ public class Type18GrenadeEntity extends EntityThrowable {
         super.writeEntityToNBT(compound);
 
         compound.setInteger(this.TAG_TICKS_AGE, this.ticksAge);
+        compound.setString(this.TAG_THROWER, this.throwerName);
     }
 
     @Override
@@ -142,8 +153,13 @@ public class Type18GrenadeEntity extends EntityThrowable {
         super.readEntityFromNBT(compound);
 
         this.ticksAge = compound.getInteger(this.TAG_TICKS_AGE);
+        this.throwerName = compound.getString(this.TAG_THROWER);
     }
 
+    @Override
+    public float getEyeHeight() {
+        return this.height * 0.5F;
+    }
 
     @Override
     public boolean isInRangeToRenderDist(double distance) {
@@ -171,16 +187,21 @@ public class Type18GrenadeEntity extends EntityThrowable {
         return false;
     }
 
-    public void printDebugLog()
-    {
-        System.out.println(
-                "Name: " + this.NAME
-                + ", T: " + this.ticksAge
-                + ", Px: " + this.posX
-                + ", Py: " + this.posY
-                + ", Pz: " + this.posZ
-                + ", Vy: " + this.motionY
-                + ", V: " + Math.sqrt(this.motionX * this.motionX + this.motionY * this.motionY + this.motionZ * this.motionZ)
+    public void logInfo(String type, Vec3d pos) {
+        if (Type18GrenadeLauncher.config.common.enableLog) {
+            Type18GrenadeLauncher.logger.info("{} [{}] at {} launched by {}", NAME, type, pos.toString(), this.throwerName);
+        }
+    }
+
+    public void logInfo(String type, Vec3d pos, Vec3d direction) {
+        if (Type18GrenadeLauncher.config.common.enableLog) {
+            Type18GrenadeLauncher.logger.info("{} [{}] at {} for {} launched by {}", NAME, type, pos.toString(), direction.toString(), this.throwerName);
+        }
+    }
+
+    public void printDebugLog() {
+        Type18GrenadeLauncher.logger.info("{}, T: {}, P: {}, V: {}",
+                this.NAME, this.ticksAge, this.getPositionVector().toString(), this.motionY, Math.sqrt(this.motionX * this.motionX + this.motionY * this.motionY + this.motionZ * this.motionZ)
         );
     }
 }
