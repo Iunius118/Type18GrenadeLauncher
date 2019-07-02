@@ -2,6 +2,7 @@ package com.github.iunius118.type18grenadelauncher;
 
 import com.github.iunius118.type18grenadelauncher.client.ClientEventHandler;
 import com.github.iunius118.type18grenadelauncher.entity.Type18GrenadeEntity;
+import com.github.iunius118.type18grenadelauncher.item.Type18GrenadeDischargerItem;
 import com.github.iunius118.type18grenadelauncher.item.Type18GrenadeItem;
 import com.github.iunius118.type18grenadelauncher.item.Type18GrenadeLauncherItem;
 import net.minecraft.entity.Entity;
@@ -38,6 +39,7 @@ public class Type18GrenadeLauncher {
     @GameRegistry.ObjectHolder(MOD_ID)
     public static class Items {
         public static final Item TYPE_18_GRENADE_LAUNCHER = null;
+        public static final Item TYPE_18_GRENADE_DISCHARGER = null;
         public static final Item TYPE_18_GRENADE = null;
     }
 
@@ -55,6 +57,7 @@ public class Type18GrenadeLauncher {
     public static void registerItems(RegistryEvent.Register<Item> event) {
         event.getRegistry().registerAll(
                 new Type18GrenadeLauncherItem().setRegistryName(Type18GrenadeLauncherItem.ID).setTranslationKey(Type18GrenadeLauncher.MOD_ID + "." + Type18GrenadeLauncherItem.ID.getPath()),
+                new Type18GrenadeDischargerItem().setRegistryName(Type18GrenadeDischargerItem.ID).setTranslationKey(Type18GrenadeLauncher.MOD_ID + "." + Type18GrenadeDischargerItem.ID.getPath()),
                 new Type18GrenadeItem().setRegistryName(Type18GrenadeItem.ID).setTranslationKey(Type18GrenadeLauncher.MOD_ID + "." + Type18GrenadeItem.ID.getPath())
         );
 

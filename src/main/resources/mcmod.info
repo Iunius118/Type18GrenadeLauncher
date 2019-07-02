@@ -2,7 +2,7 @@
 {
   "modid": "type18grenadelauncher",
   "name": "Type 18 Grenade Launcher",
-  "description": "Add a grenade launcher and its ammunition.",
+  "description": "Add grenade launchers and their ammunition.",
   "version": "${version}",
   "mcversion": "${mcversion}",
   "url": "https://github.com/Iunius118/Type18GrenadeLauncher",
