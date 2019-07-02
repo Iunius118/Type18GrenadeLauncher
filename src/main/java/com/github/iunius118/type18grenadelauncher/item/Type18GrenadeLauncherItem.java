@@ -8,15 +8,14 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.util.ActionResult;
-import net.minecraft.util.EnumActionResult;
-import net.minecraft.util.EnumHand;
-import net.minecraft.util.SoundCategory;
+import net.minecraft.util.*;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 
 public class Type18GrenadeLauncherItem extends Item {
+    public static final ResourceLocation ID = new ResourceLocation(Type18GrenadeLauncher.MOD_ID, "type_18_grenade_launcher");
+    public static final int COOL_DOWN = 160;
+
     public Type18GrenadeLauncherItem() {
         this.setCreativeTab(CreativeTabs.COMBAT);
     }
@@ -75,10 +74,7 @@ public class Type18GrenadeLauncherItem extends Item {
 
         if (!worldIn.isRemote) {
             // Server side
-
-            float cooldown = playerIn.getCooldownTracker().getCooldown(stack.getItem(), 0.0F);
-
-            if (cooldown != 0.0F) {
+            if (!canLaunch(worldIn, playerIn, handIn)) {
                 return new ActionResult<>(EnumActionResult.PASS, stack);
             }
 
@@ -103,16 +99,22 @@ public class Type18GrenadeLauncherItem extends Item {
                 worldIn.playSound(null, posEntity.x, posEntity.y, posEntity.z, SoundEvents.ENTITY_FIREWORK_BLAST, SoundCategory.AMBIENT, 0.5F, (1.0F + (worldIn.rand.nextFloat() - worldIn.rand.nextFloat()) * 0.2F) * 0.7F);
 
                 // Set cool down
-                if (playerIn.isSneaking()) {
-                    playerIn.getCooldownTracker().setCooldown(stack.getItem(), 40);
-                } else {
-                    playerIn.getCooldownTracker().setCooldown(stack.getItem(), 160);
-                }
+                playerIn.getCooldownTracker().setCooldown(stack.getItem(), this.getCoolDownTime());
             }
         } else {
             playerIn.swingArm(handIn);
         }
 
         return new ActionResult<>(EnumActionResult.SUCCESS, stack);
+    }
+
+    public int getCoolDownTime() {
+        return this.COOL_DOWN;
+    }
+
+    public boolean canLaunch(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
+        ItemStack stack = playerIn.getHeldItem(handIn);
+
+        return playerIn.getCooldownTracker().getCooldown(stack.getItem(), 0.0F) == 0.0F;
     }
 }

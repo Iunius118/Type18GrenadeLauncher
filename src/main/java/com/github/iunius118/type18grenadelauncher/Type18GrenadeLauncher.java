@@ -54,8 +54,8 @@ public class Type18GrenadeLauncher {
     @SubscribeEvent
     public static void registerItems(RegistryEvent.Register<Item> event) {
         event.getRegistry().registerAll(
-                new Type18GrenadeLauncherItem().setRegistryName("type_18_grenade_launcher").setTranslationKey(Type18GrenadeLauncher.MOD_ID + ".type_18_grenade_launcher"),
-                new Type18GrenadeItem().setRegistryName("type_18_grenade").setTranslationKey(Type18GrenadeLauncher.MOD_ID + ".type_18_grenade")
+                new Type18GrenadeLauncherItem().setRegistryName(Type18GrenadeLauncherItem.ID).setTranslationKey(Type18GrenadeLauncher.MOD_ID + "." + Type18GrenadeLauncherItem.ID.getPath()),
+                new Type18GrenadeItem().setRegistryName(Type18GrenadeItem.ID).setTranslationKey(Type18GrenadeLauncher.MOD_ID + "." + Type18GrenadeItem.ID.getPath())
         );
 
     }
