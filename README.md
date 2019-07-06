@@ -16,7 +16,9 @@ Add grenade launchers and their ammunition to Minecraft with Forge.
 
 - Crafting: 2 Iron Bars + 3 Iron Ingots + 1 Lever -> 1 40mm Grenade Launcher
 - Ammo: HE 40mm Grenade Cartridge
-- Launch: Right click
+- Launch: Right Click
+- Initial Velocity: 60 m/s
+- Rate of Fire: 7.5 rpm
 
 #### 51mm Grenade Discharger (51mmてき弾筒)
 
@@ -24,7 +26,9 @@ Add grenade launchers and their ammunition to Minecraft with Forge.
 
 - Crafting: 4 Iron Ingots + 1 40mm Grenade Launcher -> 1 51mm Grenade Discharger
 - Ammo: HE 51mm Grenade Cartridge
-- Launch: Sneak right click
+- Launch: Sneak Right Click
+- Initial Velocity: 60 m/s
+- Rate of Fire: 30 rpm
 
 ### Ammo
 
@@ -34,7 +38,7 @@ Add grenade launchers and their ammunition to Minecraft with Forge.
 
 - Crafting: 1 Heavy Weighted Pressure Plate + 1 TNT + 1 Gunpowder -> 8 HE 40mm Grenade Cartridges
 - Crafting: 1 HE 51mm Grenade Cartridge -> 2 HE 40mm Grenade Cartridges
-- Kill radius: 5 m
+- Kill Radius: 5 m
 
 #### HE 51mm Grenade Cartridge (51mm榴弾)
 
@@ -42,7 +46,7 @@ Add grenade launchers and their ammunition to Minecraft with Forge.
 
 - Crafting: 1 HE 40mm Grenade Cartridge + 1 Gunpowder -> 1 HE 51mm Grenade Cartridge
 - Crafting: 2 HE 40mm Grenade Cartridges -> 1 HE 51mm Grenade Cartridge
-- Kill radius: 10 m
+- Kill Radius: 10 m
 
 ## Configuration
 
