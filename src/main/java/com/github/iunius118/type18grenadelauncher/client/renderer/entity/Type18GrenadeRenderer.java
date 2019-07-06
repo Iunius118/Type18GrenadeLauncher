@@ -40,12 +40,12 @@ public class Type18GrenadeRenderer extends Render<Type18GrenadeEntity> {
         this.bindEntityTexture(entity);
 
         // Transform
-        float spin = (entity.ticksAge + partialTicks) * 30 % 360;
+        // float spin = (entity.ticksAge + partialTicks) * 30 % 360;
         GlStateManager.pushMatrix();
         GlStateManager.translate( x, y + 0.125D, z);
         GlStateManager.rotate(entityYaw - 90.0F, 0.0F, 1.0F, 0.0F);
         GlStateManager.rotate(entity.prevRotationPitch + (entity.rotationPitch - entity.prevRotationPitch) * partialTicks - 90.0F, 0.0F, 0.0F, 1.0F);
-        GlStateManager.rotate(spin, 0.0F, 1.0F, 0.0F);
+        // GlStateManager.rotate(spin, 0.0F, 1.0F, 0.0F);
         GlStateManager.scale(0.2F, 0.25F, 0.2F);
         GlStateManager.translate(-0.5F, -1.0F, -0.5F);
 
