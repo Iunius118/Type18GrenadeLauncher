@@ -1,7 +1,8 @@
 
 item.type18grenadelauncher.type_18_grenade_launcher.name=Grenade Launcher
 item.type18grenadelauncher.type_18_grenade_discharger.name=Grenade Discharger
-item.type18grenadelauncher.type_18_grenade.name=HE Grenade Cartridge
+item.type18grenadelauncher.type_18_grenade_40.name=HE 40 Grenade Cartridge
+item.type18grenadelauncher.type_18_grenade_51.name=HE 51 Grenade Cartridge
 
 type18grenadelauncher.configgui.detonateWhenCannotUpdate.tooltip=Detonate grenade when it cannot be updated by unloaded chunks.
 type18grenadelauncher.configgui.detonateWhenCannotUpdate=Detonate When Cannot Update

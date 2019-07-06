@@ -30,8 +30,7 @@ public class Type18GrenadeLauncherItem extends Item {
             stackAmmo = player.getHeldItem(EnumHand.MAIN_HAND);
 
         } else {
-            for (int i = 0; i < player.inventory.getSizeInventory(); ++i)
-            {
+            for (int i = 0; i < player.inventory.getSizeInventory(); ++i) {
                 ItemStack itemstack = player.inventory.getStackInSlot(i);
 
                 if (this.isAmmo(itemstack)) {
@@ -44,13 +43,21 @@ public class Type18GrenadeLauncherItem extends Item {
         if (player.capabilities.isCreativeMode) {
             if (stackAmmo.isEmpty()) {
                 // If player has no ammo and is creative mode, return default ammo
-                stackAmmo = new ItemStack(Type18GrenadeLauncher.Items.TYPE_18_GRENADE);
+                stackAmmo = new ItemStack(getDefaultAmmoItem());
             } else {
                 stackAmmo = new ItemStack(stackAmmo.getItem());
             }
         }
 
         return stackAmmo;
+    }
+
+    public boolean isAmmo(ItemStack stack) {
+        return !stack.isEmpty() && (stack.getItem() instanceof Type18Grenade40Item);
+    }
+
+    public Item getDefaultAmmoItem() {
+        return Type18GrenadeLauncher.Items.TYPE_18_GRENADE_40;
     }
 
     public Type18GrenadeEntity getAmmoEntityAndConsumeAmmo(ItemStack stack, World world, EntityLivingBase thrower) {
@@ -62,10 +69,6 @@ public class Type18GrenadeLauncherItem extends Item {
         }
 
         return null;
-    }
-
-    public boolean isAmmo(ItemStack stack) {
-        return !stack.isEmpty() && (stack.getItem() instanceof Type18GrenadeItem);
     }
 
     @Override
@@ -91,7 +94,7 @@ public class Type18GrenadeLauncherItem extends Item {
                 Vec3d posEntity = entity.getPositionVector();
 
                 // Shoot grenade
-                entity.shoot(playerIn, playerIn.rotationPitch, playerIn.rotationYawHead, 0.0F, entity.INITIAL_VELOCITY, entity.INACCURACY);
+                entity.shoot(playerIn, playerIn.rotationPitch, playerIn.rotationYawHead, 0.0F, entity.getInitialVelocity(), entity.getInaccuracy());
                 worldIn.spawnEntity(entity);
                 entity.logInfo("+Launched", posEntity, entity.getForward());
 

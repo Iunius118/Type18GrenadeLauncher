@@ -2,8 +2,9 @@ package com.github.iunius118.type18grenadelauncher;
 
 import com.github.iunius118.type18grenadelauncher.client.ClientEventHandler;
 import com.github.iunius118.type18grenadelauncher.entity.Type18GrenadeEntity;
+import com.github.iunius118.type18grenadelauncher.item.Type18Grenade40Item;
+import com.github.iunius118.type18grenadelauncher.item.Type18Grenade51Item;
 import com.github.iunius118.type18grenadelauncher.item.Type18GrenadeDischargerItem;
-import com.github.iunius118.type18grenadelauncher.item.Type18GrenadeItem;
 import com.github.iunius118.type18grenadelauncher.item.Type18GrenadeLauncherItem;
 import net.minecraft.entity.Entity;
 import net.minecraft.item.Item;
@@ -40,7 +41,8 @@ public class Type18GrenadeLauncher {
     public static class Items {
         public static final Item TYPE_18_GRENADE_LAUNCHER = null;
         public static final Item TYPE_18_GRENADE_DISCHARGER = null;
-        public static final Item TYPE_18_GRENADE = null;
+        public static final Item TYPE_18_GRENADE_40 = null;
+        public static final Item TYPE_18_GRENADE_51 = null;
     }
 
 
@@ -58,7 +60,8 @@ public class Type18GrenadeLauncher {
         event.getRegistry().registerAll(
                 new Type18GrenadeLauncherItem().setRegistryName(Type18GrenadeLauncherItem.ID).setTranslationKey(Type18GrenadeLauncher.MOD_ID + "." + Type18GrenadeLauncherItem.ID.getPath()),
                 new Type18GrenadeDischargerItem().setRegistryName(Type18GrenadeDischargerItem.ID).setTranslationKey(Type18GrenadeLauncher.MOD_ID + "." + Type18GrenadeDischargerItem.ID.getPath()),
-                new Type18GrenadeItem().setRegistryName(Type18GrenadeItem.ID).setTranslationKey(Type18GrenadeLauncher.MOD_ID + "." + Type18GrenadeItem.ID.getPath())
+                new Type18Grenade40Item().setRegistryName(Type18Grenade40Item.ID).setTranslationKey(Type18GrenadeLauncher.MOD_ID + "." + Type18Grenade40Item.ID.getPath()),
+                new Type18Grenade51Item().setRegistryName(Type18Grenade51Item.ID).setTranslationKey(Type18GrenadeLauncher.MOD_ID + "." + Type18Grenade51Item.ID.getPath())
         );
 
     }

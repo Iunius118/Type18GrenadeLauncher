@@ -58,7 +58,7 @@ public class Type18GrenadeRenderer extends Render<Type18GrenadeEntity> {
             vertexBuffer.begin(GL11.GL_QUADS, DefaultVertexFormats.ITEM);
 
             List<BakedQuad> quads = model.getQuads(null, face, 0L);
-            quads.forEach(quad -> LightUtil.renderQuadColor(vertexBuffer, quad, entity.COLOR));
+            quads.forEach(quad -> LightUtil.renderQuadColor(vertexBuffer, quad, 0xFF5E7C16));
 
             tessellator.draw();
         }
