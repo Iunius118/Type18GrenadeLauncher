@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "type18grenadelauncher:type_18_grenade_40",
+  "pattern": [
+    "P",
+    "T",
+    "g"
+  ],
+  "key": {
+    "P": {
+      "item": "minecraft:heavy_weighted_pressure_plate"
+    },
+    "T": {
+      "item": "minecraft:tnt"
+    },
+    "g": {
+      "item": "minecraft:gunpowder"
+    }
+  },
+  "result": {
+    "item": "type18grenadelauncher:type_18_grenade_40",
+    "count": 8
+  }
+}

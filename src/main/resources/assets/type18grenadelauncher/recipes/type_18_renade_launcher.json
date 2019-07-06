@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "type18grenadelauncher:type_18_grenade_launcher",
+  "pattern": [
+    "B i",
+    "Bi ",
+    "iL "
+  ],
+  "key": {
+    "i": {
+      "type": "forge:ore_dict",
+      "ore": "ingotIron"
+    },
+    "B": {
+      "item": "minecraft:iron_bars"
+    },
+    "L": {
+      "item": "minecraft:lever"
+    }
+  },
+  "result": {
+    "item": "type18grenadelauncher:type_18_grenade_launcher"
+  }
+}
