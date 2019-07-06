@@ -4,6 +4,7 @@ import net.minecraftforge.common.config.Config;
 
 @Config(modid = Type18GrenadeLauncher.MOD_ID, category = "")
 public class Type18GrenadeLauncherConfig {
+    @Config.LangKey("type18grenadelauncher.configgui.category.commonConfig")
     public static CommonConfig common = new CommonConfig();
 
     public static class CommonConfig {

@@ -1,8 +1,11 @@
 
-item.type18grenadelauncher.type_18_grenade_launcher.name=Grenade Launcher
-item.type18grenadelauncher.type_18_grenade_discharger.name=Grenade Discharger
-item.type18grenadelauncher.type_18_grenade_40.name=HE 40 Grenade Cartridge
-item.type18grenadelauncher.type_18_grenade_51.name=HE 51 Grenade Cartridge
+item.type18grenadelauncher.type_18_grenade_launcher.name=40mm Grenade Launcher
+item.type18grenadelauncher.type_18_grenade_discharger.name=51mm Grenade Discharger
+item.type18grenadelauncher.type_18_grenade_40.name=HE 40mm Grenade Cartridge
+item.type18grenadelauncher.type_18_grenade_51.name=HE 51mm Grenade Cartridge
+
+type18grenadelauncher.configgui.category.commonConfig.tooltip=This is where you can edit the settings contained in type18grenadelauncher.cfg.
+type18grenadelauncher.configgui.category.commonConfig=Common Settings
 
 type18grenadelauncher.configgui.detonateWhenCannotUpdate.tooltip=Detonate grenade when it cannot be updated by unloaded chunks.
 type18grenadelauncher.configgui.detonateWhenCannotUpdate=Detonate When Cannot Update
