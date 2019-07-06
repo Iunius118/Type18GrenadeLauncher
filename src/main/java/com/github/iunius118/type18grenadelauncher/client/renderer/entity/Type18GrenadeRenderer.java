@@ -9,8 +9,6 @@ import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.client.renderer.texture.TextureMap;
 import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
-import net.minecraft.entity.item.EntityBoat;
-import net.minecraft.entity.projectile.EntityThrowable;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.EnumDyeColor;
 import net.minecraft.item.ItemStack;
@@ -53,25 +51,19 @@ public class Type18GrenadeRenderer extends Render<Type18GrenadeEntity> {
 
         // Draw faces except bottom
         for (EnumFacing face : EnumFacing.VALUES) {
-            if (face == EnumFacing.DOWN)
+            if (face == EnumFacing.DOWN) {
                 continue;
-
-            List<BakedQuad> quads = model.getQuads(null, face, 0L);
-            int size = quads.size();
+            }
 
             vertexBuffer.begin(GL11.GL_QUADS, DefaultVertexFormats.ITEM);
 
-            for (int i = 0; i < size; ++i) {
-                LightUtil.renderQuadColor(vertexBuffer, quads.get(i), entity.COLOR);
-            }
+            List<BakedQuad> quads = model.getQuads(null, face, 0L);
+            quads.forEach(quad -> LightUtil.renderQuadColor(vertexBuffer, quad, entity.COLOR));
 
             tessellator.draw();
         }
 
         // Draw bottom face (tracer)
-        List<BakedQuad> quads = model.getQuads(null, EnumFacing.DOWN, 0L);
-        int size = quads.size();
-
         GlStateManager.disableLighting();
 
         // Tweak lightmap to draw as bright
@@ -82,9 +74,8 @@ public class Type18GrenadeRenderer extends Render<Type18GrenadeEntity> {
 
         vertexBuffer.begin(GL11.GL_QUADS, DefaultVertexFormats.ITEM);
 
-        for (int i = 0; i < size; ++i) {
-            LightUtil.renderQuadColor(vertexBuffer, quads.get(i), 0xFF1D1D21);
-        }
+        List<BakedQuad> quads = model.getQuads(null, EnumFacing.DOWN, 0L);
+        quads.forEach(quad -> LightUtil.renderQuadColor(vertexBuffer, quad, 0xFF1D1D21));
 
         tessellator.draw();
 
