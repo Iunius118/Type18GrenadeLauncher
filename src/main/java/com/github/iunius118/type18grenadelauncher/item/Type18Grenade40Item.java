@@ -8,7 +8,7 @@ import net.minecraft.world.World;
 
 public class Type18Grenade40Item extends Type18GrenadeItem {
     public static final ResourceLocation ID = new ResourceLocation(Type18GrenadeLauncher.MOD_ID, "type_18_grenade_40");
-    public static final float POWER = 3.5F;
+    public static final float POWER = 3.4F;
 
     public Type18Grenade40Item() {
         super();
