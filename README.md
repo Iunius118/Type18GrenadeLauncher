@@ -44,8 +44,8 @@ Add grenade launchers and their ammunition to Minecraft with Forge.
 
 <img src="docs/img/recipe_type_18_grenade_51.png" title="Recipes: HE 51mm Grenade Cartridge">
 
-- Crafting: 1 HE 40mm Grenade Cartridge + 1 Gunpowder -> 1 HE 51mm Grenade Cartridge
-- Crafting: 2 HE 40mm Grenade Cartridges -> 1 HE 51mm Grenade Cartridge
+- Crafting (Saving of Iron and Sand): 1 HE 40mm Grenade Cartridge + 1 Gunpowder -> 1 HE 51mm Grenade Cartridge
+- Crafting (Saving of Gunpowder): 2 HE 40mm Grenade Cartridges -> 1 HE 51mm Grenade Cartridge
 - Kill Radius: 10 m
 
 ## Configuration
