@@ -17,7 +17,6 @@ import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.Explosion;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldServer;
-import net.minecraft.world.gen.ChunkProviderServer;
 
 public class Type18GrenadeEntity extends EntityThrowable {
     public static final String NAME = "Grenade";
@@ -95,8 +94,11 @@ public class Type18GrenadeEntity extends EntityThrowable {
 
                 if (this.isPermittedDamage(DamageLavel.ENTITY)) {
                     // Create explosion
-                    Explosion explosion = world.createExplosion(this.getThrower(), result.hitVec.x, result.hitVec.y + (double) (this.height / 16.0F), result.hitVec.z, this.STRENGTH, this.isPermittedDamage(DamageLavel.TERRAIN));
+                    Explosion explosion = world.createExplosion(this.getThrower(), result.hitVec.x, result.hitVec.y + (double) (this.height / 2.0F), result.hitVec.z, this.STRENGTH, this.isPermittedDamage(DamageLavel.TERRAIN));
                 }
+
+                this.setDead();
+                this.logInfo("-Detonated", result.hitVec);
 
             } else {
                 // Hit at close distance (in the very short time), deal direct damage
@@ -110,11 +112,11 @@ public class Type18GrenadeEntity extends EntityThrowable {
                         entity.attackEntityFrom(DamageSource.causeMobDamage(this.getThrower()), this.DIRECT_DAMAGE);
                     }
                 }
+
+                this.setDead();
+                this.logInfo("-Hit", result.hitVec);
             }
 
-            this.setDead();
-
-            this.logInfo("-Detonated", result.hitVec);
         } else {
             // Client side
             if (result.typeOfHit == RayTraceResult.Type.ENTITY) {
@@ -189,13 +191,13 @@ public class Type18GrenadeEntity extends EntityThrowable {
 
     public void logInfo(String type, Vec3d pos) {
         if (Type18GrenadeLauncher.config.common.enableLog) {
-            Type18GrenadeLauncher.logger.info("{} [{}] at {} launched by {}", NAME, type, pos.toString(), this.throwerName);
+            Type18GrenadeLauncher.logger.info("{} #{} [{}] at {}, launched by {}", NAME, this.getUniqueID(), type, pos.toString(), this.throwerName);
         }
     }
 
     public void logInfo(String type, Vec3d pos, Vec3d direction) {
         if (Type18GrenadeLauncher.config.common.enableLog) {
-            Type18GrenadeLauncher.logger.info("{} [{}] at {} for {} launched by {}", NAME, type, pos.toString(), direction.toString(), this.throwerName);
+            Type18GrenadeLauncher.logger.info("{} #{} [{}] at {}, launched by {} for {}", NAME, this.getUniqueID(), type, pos.toString(), this.throwerName, direction.toString());
         }
     }
 
