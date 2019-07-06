@@ -1,0 +1,11 @@
+
+item.type18grenadelauncher.type_18_grenade_launcher.name=Grenade Launcher
+item.type18grenadelauncher.type_18_grenade_discharger.name=Grenade Discharger
+item.type18grenadelauncher.type_18_grenade.name=HE Grenade Cartridge
+
+type18grenadelauncher.configgui.detonateWhenCannotUpdate.tooltip=Detonate grenade when it cannot be updated by unloaded chunks.
+type18grenadelauncher.configgui.detonateWhenCannotUpdate=Detonate When Cannot Update
+type18grenadelauncher.configgui.enableLog.tooltip=Enable to log grenade's launching and detonating.
+type18grenadelauncher.configgui.enableLog=Enable Log
+type18grenadelauncher.configgui.grenadeDamageLevel.tooltip=Set grenade's damage (0: none, 1: entities, 2: terrain and entities).
+type18grenadelauncher.configgui.grenadeDamageLevel=Grenade Damage Level
