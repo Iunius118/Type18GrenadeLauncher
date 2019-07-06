@@ -26,7 +26,7 @@ public class Type18GrenadeEntity extends EntityThrowable {
     public static final float DIRECT_DAMAGE = 40.0F;
     public static final float INITIAL_VELOCITY = 3.0F;
     public static final float INACCURACY = 1.0F;
-    public static final ResourceLocation ID = new ResourceLocation(Type18GrenadeLauncher.MOD_ID, Type18GrenadeEntity.NAME.toLowerCase());
+    public static final ResourceLocation ID = new ResourceLocation(Type18GrenadeLauncher.MOD_ID, NAME.toLowerCase());
 
     public static final String TAG_TICKS_AGE = "age";
     public static final String TAG_POWER = "power";
@@ -49,7 +49,7 @@ public class Type18GrenadeEntity extends EntityThrowable {
 
         if (worldIn.isRemote) {
             // Client side
-            this.setRenderDistanceWeight(4.0F);
+            setRenderDistanceWeight(4.0F);
         }
     }
 
@@ -94,9 +94,9 @@ public class Type18GrenadeEntity extends EntityThrowable {
                 world.spawnParticle(EnumParticleTypes.EXPLOSION_HUGE, true, result.hitVec.x, result.hitVec.y, result.hitVec.z, 1, 0.0D, 0.0D, 0.0D, 0.0D, new int[0]);
                 world.playSound(null, this.posX, this.posY, this.posZ, SoundEvents.ENTITY_GENERIC_EXPLODE, SoundCategory.BLOCKS, 4.0F, (1.0F + (this.world.rand.nextFloat() - this.world.rand.nextFloat()) * 0.2F) * 0.7F);
 
-                if (this.isPermittedDamage(DamageLavel.ENTITY)) {
+                if (this.isPermittedDamage(DamageLevel.ENTITY)) {
                     // Create explosion
-                    Explosion explosion = world.createExplosion(this.getThrower(), result.hitVec.x, result.hitVec.y + (double) (this.height / 2.0F), result.hitVec.z, this.power, this.isPermittedDamage(DamageLavel.TERRAIN));
+                    Explosion explosion = world.createExplosion(this.getThrower(), result.hitVec.x, result.hitVec.y + (double) (this.height / 2.0F), result.hitVec.z, this.power, this.isPermittedDamage(DamageLevel.TERRAIN));
                 }
 
                 this.setDead();
@@ -104,14 +104,14 @@ public class Type18GrenadeEntity extends EntityThrowable {
 
             } else {
                 // Hit at close distance (in the very short time), deal direct damage
-                if (this.isPermittedDamage(DamageLavel.ENTITY)) {
+                if (this.isPermittedDamage(DamageLevel.ENTITY)) {
                     Entity entity = result.entityHit;
 
                     if (entity instanceof EntityPlayer) {
-                        entity.attackEntityFrom(DamageSource.causePlayerDamage((EntityPlayer) this.getThrower()), DIRECT_DAMAGE);
+                        entity.attackEntityFrom(DamageSource.causePlayerDamage((EntityPlayer) getThrower()), DIRECT_DAMAGE);
 
                     } else if (entity != null) {
-                        entity.attackEntityFrom(DamageSource.causeMobDamage(this.getThrower()), DIRECT_DAMAGE);
+                        entity.attackEntityFrom(DamageSource.causeMobDamage(getThrower()), DIRECT_DAMAGE);
                     }
                 }
 
@@ -177,13 +177,13 @@ public class Type18GrenadeEntity extends EntityThrowable {
         return new Vec3d(this.motionX, this.motionY, this.motionZ);
     }
 
-    public enum DamageLavel {
+    public enum DamageLevel {
         NONE,
         ENTITY,
         TERRAIN
     }
 
-    public boolean isPermittedDamage(DamageLavel level) {
+    public boolean isPermittedDamage(DamageLevel level) {
         int permittedLevel = Type18GrenadeLauncherConfig.common.grenadeDamageLevel;
 
         if (level.ordinal() <= permittedLevel) {
