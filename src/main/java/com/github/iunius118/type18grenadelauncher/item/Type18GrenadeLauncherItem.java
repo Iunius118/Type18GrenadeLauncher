@@ -1,6 +1,7 @@
 package com.github.iunius118.type18grenadelauncher.item;
 
 import com.github.iunius118.type18grenadelauncher.Type18GrenadeLauncher;
+import com.github.iunius118.type18grenadelauncher.Type18GrenadeLauncherConfig;
 import com.github.iunius118.type18grenadelauncher.entity.Type18GrenadeEntity;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLivingBase;
@@ -40,7 +41,8 @@ public class Type18GrenadeLauncherItem extends Item {
             }
         }
 
-        if (player.capabilities.isCreativeMode) {
+        if (player.capabilities.isCreativeMode || !Type18GrenadeEntity.isPermittedDamage(Type18GrenadeEntity.DamageLevel.ENTITY)) {
+            // If player is creative mode or grenadeDamageLevel is 0, grenade won't be consumed
             if (stackAmmo.isEmpty()) {
                 // If player has no ammo and is creative mode, return default ammo
                 stackAmmo = new ItemStack(getDefaultAmmoItem());
@@ -91,6 +93,11 @@ public class Type18GrenadeLauncherItem extends Item {
             Type18GrenadeEntity entity = getAmmoEntityAndConsumeAmmo(stackAmmo, worldIn, playerIn);
 
             if (entity != null) {
+                if (!Type18GrenadeEntity.isPermittedDamage(Type18GrenadeEntity.DamageLevel.ENTITY)) {
+                    // If config of grenadeDamageLevel is 0, grenade won't cause any damage
+                    entity.power = 0.0F;
+                }
+
                 Vec3d posEntity = entity.getPositionVector();
 
                 // Shoot grenade

@@ -94,7 +94,7 @@ public class Type18GrenadeEntity extends EntityThrowable {
                 world.spawnParticle(EnumParticleTypes.EXPLOSION_HUGE, true, result.hitVec.x, result.hitVec.y, result.hitVec.z, 1, 0.0D, 0.0D, 0.0D, 0.0D, new int[0]);
                 world.playSound(null, this.posX, this.posY, this.posZ, SoundEvents.ENTITY_GENERIC_EXPLODE, SoundCategory.BLOCKS, 4.0F, (1.0F + (this.world.rand.nextFloat() - this.world.rand.nextFloat()) * 0.2F) * 0.7F);
 
-                if (this.isPermittedDamage(DamageLevel.ENTITY)) {
+                if (this.isPermittedDamage(DamageLevel.ENTITY) && power > 0.0F) {
                     // Create explosion
                     Explosion explosion = world.createExplosion(this.getThrower(), result.hitVec.x, result.hitVec.y + (double) (this.height / 2.0F), result.hitVec.z, this.power, this.isPermittedDamage(DamageLevel.TERRAIN));
                 }
@@ -104,7 +104,7 @@ public class Type18GrenadeEntity extends EntityThrowable {
 
             } else {
                 // Hit at close distance (in the very short time), deal direct damage
-                if (this.isPermittedDamage(DamageLevel.ENTITY)) {
+                if (this.isPermittedDamage(DamageLevel.ENTITY) && power > 0.0F) {
                     Entity entity = result.entityHit;
 
                     if (entity instanceof EntityPlayer) {
@@ -183,7 +183,7 @@ public class Type18GrenadeEntity extends EntityThrowable {
         TERRAIN
     }
 
-    public boolean isPermittedDamage(DamageLevel level) {
+    public static boolean isPermittedDamage(DamageLevel level) {
         int permittedLevel = Type18GrenadeLauncherConfig.common.grenadeDamageLevel;
 
         if (level.ordinal() <= permittedLevel) {
@@ -214,8 +214,8 @@ public class Type18GrenadeEntity extends EntityThrowable {
     }
 
     public void printDebugLog() {
-        Type18GrenadeLauncher.logger.info("{}, T: {}, P: {}, V: {}",
-                NAME, this.ticksAge, this.getPositionVector().toString(), Math.sqrt(this.motionX * this.motionX + this.motionY * this.motionY + this.motionZ * this.motionZ)
+        Type18GrenadeLauncher.logger.info("{}, T: {}, P: {}, V: {}, S: {}",
+                NAME, this.ticksAge, this.getPositionVector().toString(), Math.sqrt(this.motionX * this.motionX + this.motionY * this.motionY + this.motionZ * this.motionZ), power
         );
     }
 }
