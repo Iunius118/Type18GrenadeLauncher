@@ -16,6 +16,6 @@ public class Type18Grenade40Item extends Type18GrenadeItem {
 
     @Override
     public Type18GrenadeEntity getEntity(World world, EntityLivingBase thrower) {
-        return new Type18GrenadeEntity(world, thrower, this.POWER);
+        return new Type18GrenadeEntity(world, thrower, POWER);
     }
 }

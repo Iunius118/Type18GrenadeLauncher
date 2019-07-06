@@ -112,7 +112,7 @@ public class Type18GrenadeLauncherItem extends Item {
     }
 
     public int getCoolDownTime() {
-        return this.COOL_DOWN;
+        return COOL_DOWN;
     }
 
     public boolean canLaunch(World worldIn, EntityPlayer playerIn, EnumHand handIn) {

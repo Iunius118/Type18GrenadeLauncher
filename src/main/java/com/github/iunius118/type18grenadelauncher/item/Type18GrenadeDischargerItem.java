@@ -16,7 +16,7 @@ public class Type18GrenadeDischargerItem extends Type18GrenadeLauncherItem {
 
     @Override
     public int getCoolDownTime() {
-        return this.COOL_DOWN;
+        return COOL_DOWN;
     }
 
     @Override
