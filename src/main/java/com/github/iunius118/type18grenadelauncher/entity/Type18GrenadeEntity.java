@@ -21,7 +21,7 @@ import net.minecraft.world.WorldServer;
 
 public class Type18GrenadeEntity extends EntityThrowable {
     public static final String NAME = "Grenade";
-    public static final int FUSE_SAFETY = 2;
+    public static final int FUSE_SAFETY = 1;
     public static final int FUSE_MAX = 150;
     public static final float DIRECT_DAMAGE = 40.0F;
     public static final float INITIAL_VELOCITY = 3.0F;
