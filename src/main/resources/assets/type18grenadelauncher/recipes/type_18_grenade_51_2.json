@@ -1,15 +1,14 @@
 {
-  "type": "minecraft:crafting_shaped",
+  "type": "forge:ore_shapeless",
   "group": "type18grenadelauncher:type_18_grenade_51",
-  "pattern": [
-    "4",
-    "4"
-  ],
-  "key": {
-    "4": {
+  "ingredients": [
+    {
+      "item": "type18grenadelauncher:type_18_grenade_40"
+    },
+    {
       "item": "type18grenadelauncher:type_18_grenade_40"
     }
-  },
+  ],
   "result": {
     "item": "type18grenadelauncher:type_18_grenade_51"
   }
