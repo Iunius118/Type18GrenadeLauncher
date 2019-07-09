@@ -103,7 +103,7 @@ public class Type18GrenadeLauncherItem extends Item {
                 // Shoot grenade
                 entity.shoot(playerIn, playerIn.rotationPitch, playerIn.rotationYawHead, 0.0F, entity.getInitialVelocity(), entity.getInaccuracy());
                 worldIn.spawnEntity(entity);
-                entity.logInfo("+Launched", posEntity, entity.getForward());
+                entity.logInfo("+Launched", posEntity, new Vec3d(entity.motionX, entity.motionY, entity.motionZ).normalize());
 
                 // Generate sound
                 worldIn.playSound(null, posEntity.x, posEntity.y, posEntity.z, SoundEvents.ENTITY_FIREWORK_BLAST, SoundCategory.AMBIENT, 0.5F, (1.0F + (worldIn.rand.nextFloat() - worldIn.rand.nextFloat()) * 0.2F) * 0.7F);
