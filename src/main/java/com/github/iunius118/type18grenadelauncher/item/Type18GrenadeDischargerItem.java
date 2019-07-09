@@ -32,6 +32,9 @@ public class Type18GrenadeDischargerItem extends Type18GrenadeLauncherItem {
     @Override
     public boolean canLaunch(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
         return playerIn.isSneaking();
+    }
 
+    @Override
+    public void recoil(EntityPlayer playerIn, EnumHand handIn) {
     }
 }

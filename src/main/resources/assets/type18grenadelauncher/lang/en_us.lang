@@ -4,8 +4,13 @@ item.type18grenadelauncher.grenade_discharger.name=51mm Grenade Discharger
 item.type18grenadelauncher.grenade_40.name=HE 40mm Grenade Cartridge
 item.type18grenadelauncher.grenade_51.name=HE 51mm Grenade Cartridge
 
+type18grenadelauncher.configgui.category.clientConfig.tooltip=This is where you can edit the client-side settings contained in type18grenadelauncher.cfg.
+type18grenadelauncher.configgui.category.clientConfig=Client Settings
 type18grenadelauncher.configgui.category.commonConfig.tooltip=This is where you can edit the settings contained in type18grenadelauncher.cfg.
 type18grenadelauncher.configgui.category.commonConfig=Common Settings
+
+type18grenadelauncher.configgui.disableRecoil.tooltip=Disable recoil of Grenade Launcher.
+type18grenadelauncher.configgui.disableRecoil=Disable Recoil
 
 type18grenadelauncher.configgui.detonateWhenCannotUpdate.tooltip=Detonate grenade when it cannot be updated by unloaded chunks.
 type18grenadelauncher.configgui.detonateWhenCannotUpdate=Detonate When Cannot Update

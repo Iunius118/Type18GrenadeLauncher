@@ -7,6 +7,9 @@ public class Type18GrenadeLauncherConfig {
     @Config.LangKey("type18grenadelauncher.configgui.category.commonConfig")
     public static CommonConfig common = new CommonConfig();
 
+    @Config.LangKey("type18grenadelauncher.configgui.category.clientConfig")
+    public static ClientConfig client = new ClientConfig();
+
     public static class CommonConfig {
         @Config.Comment("Detonate grenade when it cannot be updated by unloaded chunks.")
         @Config.LangKey("type18grenadelauncher.configgui.detonateWhenCannotUpdate")
@@ -20,5 +23,11 @@ public class Type18GrenadeLauncherConfig {
         @Config.LangKey("type18grenadelauncher.configgui.grenadeDamageLevel")
         @Config.RangeInt(min = 0, max = 2)
         public int grenadeDamageLevel = 1;
+    }
+
+    public static class ClientConfig {
+        @Config.Comment("Disable recoil of Grenade Launcher.")
+        @Config.LangKey("type18grenadelauncher.configgui.disableRecoil")
+        public boolean disableRecoil = false;
     }
 }

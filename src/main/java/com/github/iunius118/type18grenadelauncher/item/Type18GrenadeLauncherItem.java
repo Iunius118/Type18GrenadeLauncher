@@ -112,7 +112,12 @@ public class Type18GrenadeLauncherItem extends Item {
                 playerIn.getCooldownTracker().setCooldown(stack.getItem(), this.getCoolDownTime());
             }
         } else {
+            // Client side
             playerIn.swingArm(handIn);
+
+            if (!Type18GrenadeLauncherConfig.client.disableRecoil) {
+                recoil(playerIn, handIn);
+            }
         }
 
         return new ActionResult<>(EnumActionResult.SUCCESS, stack);
@@ -124,6 +129,10 @@ public class Type18GrenadeLauncherItem extends Item {
 
     public boolean canLaunch(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
         return true;
+    }
 
+    public void recoil(EntityPlayer playerIn, EnumHand handIn) {
+        playerIn.rotationYaw += playerIn.getRNG().nextFloat() * 1.5F * ((handIn == EnumHand.MAIN_HAND ? 1 : -1) * (playerIn.getPrimaryHand() == EnumHandSide.RIGHT ? 1 : -1));
+        playerIn.rotationPitch += playerIn.getRNG().nextFloat() - 0.5F;
     }
 }
