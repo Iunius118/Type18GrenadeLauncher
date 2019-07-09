@@ -15,10 +15,10 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 public class ClientEventHandler {
     @SubscribeEvent
     public void onModelRegistryEvent (ModelRegistryEvent event) {
-        ModelLoader.setCustomModelResourceLocation(Type18GrenadeLauncher.Items.TYPE_18_GRENADE_LAUNCHER, 0, new ModelResourceLocation(Type18GrenadeLauncher.Items.TYPE_18_GRENADE_LAUNCHER.getRegistryName(), "inventory"));
-        ModelLoader.setCustomModelResourceLocation(Type18GrenadeLauncher.Items.TYPE_18_GRENADE_DISCHARGER, 0, new ModelResourceLocation(Type18GrenadeLauncher.Items.TYPE_18_GRENADE_DISCHARGER.getRegistryName(), "inventory"));
-        ModelLoader.setCustomModelResourceLocation(Type18GrenadeLauncher.Items.TYPE_18_GRENADE_40, 0, new ModelResourceLocation(Type18GrenadeLauncher.Items.TYPE_18_GRENADE_40.getRegistryName(), "inventory"));
-        ModelLoader.setCustomModelResourceLocation(Type18GrenadeLauncher.Items.TYPE_18_GRENADE_51, 0, new ModelResourceLocation(Type18GrenadeLauncher.Items.TYPE_18_GRENADE_51.getRegistryName(), "inventory"));
+        ModelLoader.setCustomModelResourceLocation(Type18GrenadeLauncher.Items.GRENADE_LAUNCHER, 0, new ModelResourceLocation(Type18GrenadeLauncher.Items.GRENADE_LAUNCHER.getRegistryName(), "inventory"));
+        ModelLoader.setCustomModelResourceLocation(Type18GrenadeLauncher.Items.GRENADE_DISCHARGER, 0, new ModelResourceLocation(Type18GrenadeLauncher.Items.GRENADE_DISCHARGER.getRegistryName(), "inventory"));
+        ModelLoader.setCustomModelResourceLocation(Type18GrenadeLauncher.Items.GRENADE_40, 0, new ModelResourceLocation(Type18GrenadeLauncher.Items.GRENADE_40.getRegistryName(), "inventory"));
+        ModelLoader.setCustomModelResourceLocation(Type18GrenadeLauncher.Items.GRENADE_51, 0, new ModelResourceLocation(Type18GrenadeLauncher.Items.GRENADE_51.getRegistryName(), "inventory"));
 
         RenderingRegistry.registerEntityRenderingHandler(Type18GrenadeEntity.class, Type18GrenadeRenderer::new);
     }

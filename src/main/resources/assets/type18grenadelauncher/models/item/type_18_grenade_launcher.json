@@ -1,6 +1,0 @@
-{
-  "parent": "item/handheld",
-  "textures": {
-    "layer0": "type18grenadelauncher:items/type_18_grenade_launcher"
-  }
-}

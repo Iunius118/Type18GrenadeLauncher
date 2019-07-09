@@ -14,7 +14,7 @@ import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 
 public class Type18GrenadeLauncherItem extends Item {
-    public static final ResourceLocation ID = new ResourceLocation(Type18GrenadeLauncher.MOD_ID, "type_18_grenade_launcher");
+    public static final ResourceLocation ID = new ResourceLocation(Type18GrenadeLauncher.MOD_ID, "grenade_launcher");
     public static final int COOL_DOWN = 160;
 
     public Type18GrenadeLauncherItem() {
@@ -59,7 +59,7 @@ public class Type18GrenadeLauncherItem extends Item {
     }
 
     public Item getDefaultAmmoItem() {
-        return Type18GrenadeLauncher.Items.TYPE_18_GRENADE_40;
+        return Type18GrenadeLauncher.Items.GRENADE_40;
     }
 
     public Type18GrenadeEntity getAmmoEntityAndConsumeAmmo(ItemStack stack, World world, EntityLivingBase thrower) {

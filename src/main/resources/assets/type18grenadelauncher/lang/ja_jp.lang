@@ -1,8 +1,8 @@
 
-item.type18grenadelauncher.type_18_grenade_launcher.name=40mmてき弾銃
-item.type18grenadelauncher.type_18_grenade_discharger.name=51mmてき弾筒
-item.type18grenadelauncher.type_18_grenade_40.name=40mm榴弾
-item.type18grenadelauncher.type_18_grenade_51.name=51mm榴弾
+item.type18grenadelauncher.grenade_launcher.name=40mmてき弾銃
+item.type18grenadelauncher.grenade_discharger.name=51mmてき弾筒
+item.type18grenadelauncher.grenade_40.name=40mm榴弾
+item.type18grenadelauncher.grenade_51.name=51mm榴弾
 
 type18grenadelauncher.configgui.category.commonConfig.tooltip=type18grenadelauncher.cfgに含まれる設定項目を設定することができます。
 type18grenadelauncher.configgui.category.commonConfig=共通の設定

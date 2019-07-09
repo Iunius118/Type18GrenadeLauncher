@@ -1,0 +1,15 @@
+{
+  "type": "forge:ore_shapeless",
+  "group": "type18grenadelauncher:grenade_51",
+  "ingredients": [
+    {
+      "item": "type18grenadelauncher:grenade_40"
+    },
+    {
+      "item": "type18grenadelauncher:grenade_40"
+    }
+  ],
+  "result": {
+    "item": "type18grenadelauncher:grenade_51"
+  }
+}

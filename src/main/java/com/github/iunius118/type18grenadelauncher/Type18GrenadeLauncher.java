@@ -8,6 +8,7 @@ import com.github.iunius118.type18grenadelauncher.item.Type18GrenadeDischargerIt
 import com.github.iunius118.type18grenadelauncher.item.Type18GrenadeLauncherItem;
 import net.minecraft.entity.Entity;
 import net.minecraft.item.Item;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
@@ -19,6 +20,9 @@ import net.minecraftforge.fml.common.registry.EntityEntry;
 import net.minecraftforge.fml.common.registry.EntityEntryBuilder;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import org.apache.logging.log4j.Logger;
+
+import java.util.HashMap;
+import java.util.Map;
 
 @Mod(
         modid = Type18GrenadeLauncher.MOD_ID,
@@ -39,10 +43,10 @@ public class Type18GrenadeLauncher {
 
     @GameRegistry.ObjectHolder(MOD_ID)
     public static class Items {
-        public static final Item TYPE_18_GRENADE_LAUNCHER = null;
-        public static final Item TYPE_18_GRENADE_DISCHARGER = null;
-        public static final Item TYPE_18_GRENADE_40 = null;
-        public static final Item TYPE_18_GRENADE_51 = null;
+        public static final Item GRENADE_LAUNCHER = null;
+        public static final Item GRENADE_DISCHARGER = null;
+        public static final Item GRENADE_40 = null;
+        public static final Item GRENADE_51 = null;
     }
 
 
@@ -53,6 +57,20 @@ public class Type18GrenadeLauncher {
         if (event.getSide().isClient()) {
             MinecraftForge.EVENT_BUS.register(new ClientEventHandler());
         }
+    }
+
+    @SubscribeEvent
+    public static void remapItems(RegistryEvent.MissingMappings<Item> mappings) {
+        final Map<ResourceLocation, Item> remappingItemMap = new HashMap<>();
+        remappingItemMap.put(new ResourceLocation(MOD_ID, "type_18_grenade_launcher"), Items.GRENADE_LAUNCHER);
+        remappingItemMap.put(new ResourceLocation(MOD_ID, "type_18_grenade_discharger"), Items.GRENADE_DISCHARGER);
+        remappingItemMap.put(new ResourceLocation(MOD_ID, "type_18_grenade_40"), Items.GRENADE_40);
+        remappingItemMap.put(new ResourceLocation(MOD_ID, "type_18_grenade_51"), Items.GRENADE_51);
+
+        // Replace item ID v1.12-2-1.0.0.0 with v1.12-2-1.0.1.0
+        mappings.getAllMappings().stream()
+                .filter(mapping -> mapping.key.getNamespace().equals(MOD_ID) && remappingItemMap.containsKey(mapping.key))
+                .forEach(mapping -> mapping.remap(remappingItemMap.get(mapping.key)));
     }
 
     @SubscribeEvent

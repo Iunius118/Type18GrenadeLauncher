@@ -11,7 +11,7 @@ import net.minecraft.world.World;
 import javax.annotation.Nonnull;
 
 public class Type18GrenadeDischargerItem extends Type18GrenadeLauncherItem {
-    public static final ResourceLocation ID = new ResourceLocation(Type18GrenadeLauncher.MOD_ID, "type_18_grenade_discharger");
+    public static final ResourceLocation ID = new ResourceLocation(Type18GrenadeLauncher.MOD_ID, "grenade_discharger");
     public static final int COOL_DOWN = 40;
 
     @Override
@@ -26,7 +26,7 @@ public class Type18GrenadeDischargerItem extends Type18GrenadeLauncherItem {
 
     @Override
     public Item getDefaultAmmoItem() {
-        return Type18GrenadeLauncher.Items.TYPE_18_GRENADE_51;
+        return Type18GrenadeLauncher.Items.GRENADE_51;
     }
 
     @Override
