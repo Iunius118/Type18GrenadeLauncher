@@ -123,7 +123,7 @@ public class Type18GrenadeLauncherItem extends Item {
     }
 
     public boolean canLaunch(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
-        ItemStack stack = playerIn.getHeldItem(handIn);
+        return true;
 
         return playerIn.getCooldownTracker().getCooldown(stack.getItem(), 0.0F) == 0.0F;
     }

@@ -31,7 +31,7 @@ public class Type18GrenadeDischargerItem extends Type18GrenadeLauncherItem {
 
     @Override
     public boolean canLaunch(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
-        ItemStack stack = playerIn.getHeldItem(handIn);
+        return playerIn.isSneaking();
 
         return playerIn.getCooldownTracker().getCooldown(stack.getItem(), 0.0F) == 0.0F && playerIn.isSneaking();
     }
