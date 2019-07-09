@@ -12,7 +12,7 @@ Add grenade launchers and their ammunition to Minecraft with Forge.
 
 #### 40mm Grenade Launcher (40mmてき弾銃)
 
-<img src="docs/img/recipe_type_18_grenade_launcher.png" title="Recipe: 40mm Grenade Launcher">
+<img src="docs/img/recipe_grenade_launcher.png" title="Recipe: 40mm Grenade Launcher">
 
 - Crafting: 2 *Iron Bars* + 3 *Iron Ingots* + 1 *Lever* → 1 *40mm Grenade Launcher*
 - Ammo: *HE 40mm Grenade Cartridge*
@@ -22,7 +22,7 @@ Add grenade launchers and their ammunition to Minecraft with Forge.
 
 #### 51mm Grenade Discharger (51mmてき弾筒)
 
-<img src="docs/img/recipe_type_18_grenade_discharger.png" title="Recipe: 51mm Grenade Discharger">
+<img src="docs/img/recipe_grenade_discharger.png" title="Recipe: 51mm Grenade Discharger">
 
 - Crafting: 4 *Iron Ingots* + 1 *40mm Grenade Launcher* → 1 *51mm Grenade Discharger*
 - Ammo: *HE 51mm Grenade Cartridge*
@@ -34,7 +34,7 @@ Add grenade launchers and their ammunition to Minecraft with Forge.
 
 #### HE 40mm Grenade Cartridge (40mm榴弾)
 
-<img src="docs/img/recipe_type_18_grenade_40.png" title="Recipes: HE 40mm Grenade Cartridge">
+<img src="docs/img/recipe_grenade_40.png" title="Recipes: HE 40mm Grenade Cartridge">
 
 - Crafting: 1 *Heavy Weighted Pressure Plate* + 1 *TNT* + 1 *Gunpowder* → 8 *HE 40mm Grenade Cartridges*
 - Crafting: 1 *HE 51mm Grenade Cartridge* → 2 *HE 40mm Grenade Cartridges*
@@ -42,7 +42,7 @@ Add grenade launchers and their ammunition to Minecraft with Forge.
 
 #### HE 51mm Grenade Cartridge (51mm榴弾)
 
-<img src="docs/img/recipe_type_18_grenade_51.png" title="Recipes: HE 51mm Grenade Cartridge">
+<img src="docs/img/recipe_grenade_51.png" title="Recipes: HE 51mm Grenade Cartridge">
 
 - Crafting (Saving of Iron and Sand): 1 *HE 40mm Grenade Cartridge* + 1 *Gunpowder* → 1 *HE 51mm Grenade Cartridge*
 - Crafting (Saving of Gunpowder): 2 *HE 40mm Grenade Cartridges* → 1 *HE 51mm Grenade Cartridge*
