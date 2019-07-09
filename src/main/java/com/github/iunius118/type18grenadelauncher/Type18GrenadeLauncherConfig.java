@@ -14,7 +14,7 @@ public class Type18GrenadeLauncherConfig {
 
         @Config.Comment("Enable to log grenade's launching and detonating.")
         @Config.LangKey("type18grenadelauncher.configgui.enableLog")
-        public boolean enableLog = true;
+        public boolean enableLog = false;
 
         @Config.Comment("Set grenade's damage (0: none, 1: entities, 2: terrain and entities).")
         @Config.LangKey("type18grenadelauncher.configgui.grenadeDamageLevel")
