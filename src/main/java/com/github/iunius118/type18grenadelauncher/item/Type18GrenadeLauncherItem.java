@@ -132,7 +132,7 @@ public class Type18GrenadeLauncherItem extends Item {
     }
 
     public void recoil(EntityPlayer playerIn, EnumHand handIn) {
-        playerIn.rotationYaw += playerIn.getRNG().nextFloat() * 1.5F * ((handIn == EnumHand.MAIN_HAND ? 1 : -1) * (playerIn.getPrimaryHand() == EnumHandSide.RIGHT ? 1 : -1));
-        playerIn.rotationPitch += playerIn.getRNG().nextFloat() - 0.5F;
+        float recoilYaw = (playerIn.getRNG().nextFloat() * 2.0F - 0.5F) * (handIn == EnumHand.MAIN_HAND ? 1.0F : -1.0F) * (playerIn.getPrimaryHand() == EnumHandSide.RIGHT ? 1.0F : -1.0F);
+        playerIn.rotationYaw += recoilYaw;
     }
 }
