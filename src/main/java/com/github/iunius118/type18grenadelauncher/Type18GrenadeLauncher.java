@@ -33,7 +33,7 @@ import java.util.Map;
 public class Type18GrenadeLauncher {
     public static final String MOD_ID = "type18grenadelauncher";
     public static final String MOD_NAME = "Type 18 Grenade Launcher";
-    public static final String MOD_VERSION = "1.12-2-1.0.0.0";
+    public static final String MOD_VERSION = "1.12-2-1.1.0.0";
     public static final String MOD_DEPENDENCIES = "required-after:forge@[1.12.2-14.23.3.2768,)";
 
     public static final boolean DEBUG = false;
