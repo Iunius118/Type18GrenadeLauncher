@@ -1,4 +1,4 @@
-# Type18GrenadeLauncher
+# Type 18 Grenade Launcher
 
 Add grenade launchers and their ammunition to Minecraft with Forge.
 
@@ -66,7 +66,7 @@ Configuration is saved in `type18grenadelauncher.cfg`.
 ### Client
 
 - **disableRecoil** (boolean, default is `false`)
-  - Disable recoil of *Type 18 40 mm Grenade Launcher*
+  - Disable recoil of Grenade Launchers
 
 ### Common
 
