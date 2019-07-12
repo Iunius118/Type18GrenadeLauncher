@@ -10,7 +10,7 @@ Add grenade launchers and their ammunition to Minecraft with Forge.
 
 ### Grenade Launchers
 
-#### 40 mm Grenade Launcher (18式40mmてき弾銃)
+#### 40 mm Grenade Launcher (40mmてき弾銃)
 
 <img src="docs/img/recipe_grenade_launcher.png" title="Recipe: 40 mm Grenade Launcher">
 
@@ -20,7 +20,7 @@ Add grenade launchers and their ammunition to Minecraft with Forge.
 - **Initial Velocity:** 60 m/s
 - **Rate of Fire:** 7.5 rpm
 
-#### 40 mm Revolver Grenade Launcher (18式40mm回転式てき弾銃)
+#### 40 mm Revolver Grenade Launcher (40mm回転式てき弾銃)
 
 <img src="docs/img/recipe_grenade_launcher_revolver.png" title="Recipe: 40 mm Revolver Grenade Launcher">
 
@@ -31,7 +31,7 @@ Add grenade launchers and their ammunition to Minecraft with Forge.
 - **Initial Velocity:** 60 m/s
 - **Rate of Fire:** 18 rpm (sustained), 2 rps (rapid fire)
 
-#### 51 mm Light Mortar (18式51mm軽迫撃砲)
+#### 51 mm Light Mortar (51mm軽迫撃砲)
 
 <img src="docs/img/recipe_grenade_discharger.png" title="Recipe: 51 mm Grenade Discharger">
 
