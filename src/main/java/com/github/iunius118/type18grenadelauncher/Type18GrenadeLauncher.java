@@ -2,10 +2,7 @@ package com.github.iunius118.type18grenadelauncher;
 
 import com.github.iunius118.type18grenadelauncher.client.ClientEventHandler;
 import com.github.iunius118.type18grenadelauncher.entity.Type18GrenadeEntity;
-import com.github.iunius118.type18grenadelauncher.item.Type18Grenade40Item;
-import com.github.iunius118.type18grenadelauncher.item.Type18Grenade51Item;
-import com.github.iunius118.type18grenadelauncher.item.Type18GrenadeDischargerItem;
-import com.github.iunius118.type18grenadelauncher.item.Type18GrenadeLauncherItem;
+import com.github.iunius118.type18grenadelauncher.item.*;
 import net.minecraft.entity.Entity;
 import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
@@ -33,7 +30,7 @@ import java.util.Map;
 public class Type18GrenadeLauncher {
     public static final String MOD_ID = "type18grenadelauncher";
     public static final String MOD_NAME = "Type 18 Grenade Launcher";
-    public static final String MOD_VERSION = "1.12-2-1.1.0.0";
+    public static final String MOD_VERSION = "1.12-2-1.1.1.0";
     public static final String MOD_DEPENDENCIES = "required-after:forge@[1.12.2-14.23.3.2768,)";
 
     public static final boolean DEBUG = false;
@@ -44,6 +41,7 @@ public class Type18GrenadeLauncher {
     @GameRegistry.ObjectHolder(MOD_ID)
     public static class Items {
         public static final Item GRENADE_LAUNCHER = null;
+        public static final Item GRENADE_LAUNCHER_REVOLVER = null;
         public static final Item GRENADE_DISCHARGER = null;
         public static final Item GRENADE_40 = null;
         public static final Item GRENADE_51 = null;
@@ -77,6 +75,7 @@ public class Type18GrenadeLauncher {
     public static void registerItems(RegistryEvent.Register<Item> event) {
         event.getRegistry().registerAll(
                 new Type18GrenadeLauncherItem().setRegistryName(Type18GrenadeLauncherItem.ID).setTranslationKey(Type18GrenadeLauncher.MOD_ID + "." + Type18GrenadeLauncherItem.ID.getPath()),
+                new Type18RevolverGrenadeLauncherItem().setRegistryName(Type18RevolverGrenadeLauncherItem.ID).setTranslationKey(Type18GrenadeLauncher.MOD_ID + "." + Type18RevolverGrenadeLauncherItem.ID.getPath()),
                 new Type18GrenadeDischargerItem().setRegistryName(Type18GrenadeDischargerItem.ID).setTranslationKey(Type18GrenadeLauncher.MOD_ID + "." + Type18GrenadeDischargerItem.ID.getPath()),
                 new Type18Grenade40Item().setRegistryName(Type18Grenade40Item.ID).setTranslationKey(Type18GrenadeLauncher.MOD_ID + "." + Type18Grenade40Item.ID.getPath()),
                 new Type18Grenade51Item().setRegistryName(Type18Grenade51Item.ID).setTranslationKey(Type18GrenadeLauncher.MOD_ID + "." + Type18Grenade51Item.ID.getPath())

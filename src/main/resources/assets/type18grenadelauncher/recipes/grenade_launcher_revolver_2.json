@@ -1,0 +1,12 @@
+{
+  "type": "forge:ore_shapeless",
+  "group": "type18grenadelauncher:grenade_launcher_revolver",
+  "ingredients": [
+    {
+      "item": "type18grenadelauncher:grenade_launcher_revolver"
+    }
+  ],
+  "result": {
+    "item": "type18grenadelauncher:grenade_launcher_revolver"
+  }
+}

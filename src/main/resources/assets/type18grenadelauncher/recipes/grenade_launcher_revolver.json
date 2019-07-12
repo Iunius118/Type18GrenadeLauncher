@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "type18grenadelauncher:grenade_launcher_revolver",
+  "pattern": [
+    "iii",
+    "ili",
+    "iii"
+  ],
+  "key": {
+    "i": {
+      "type": "forge:ore_dict",
+      "ore": "ingotIron"
+    },
+    "l": {
+      "item": "type18grenadelauncher:grenade_launcher"
+    }
+  },
+  "result": {
+    "item": "type18grenadelauncher:grenade_launcher_revolver"
+  }
+}
