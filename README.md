@@ -4,38 +4,38 @@ Add grenade launchers and their ammunition to Minecraft with Forge.
 
 ## Release
 
-- [v1.12.2-1.1.1.0](https://github.com/Iunius118/Type18GrenadeLauncher/releases/tag/v1.12.2-1.1.1.0)
+- [v1.12.2-1.1.1.1](https://github.com/Iunius118/Type18GrenadeLauncher/releases/tag/v1.12.2-1.1.1.1)
 
 ## Description
 
 ### Grenade Launchers
 
-#### Type 18 40 mm Grenade Launcher (18式40mmてき弾銃)
+#### 40 mm Grenade Launcher (18式40mmてき弾銃)
 
-<img src="docs/img/recipe_grenade_launcher.png" title="Recipe: Type 18 40 mm Grenade Launcher">
+<img src="docs/img/recipe_grenade_launcher.png" title="Recipe: 40 mm Grenade Launcher">
 
-- **Crafting:** 2 *Iron Bars* + 3 *Iron Ingots* + 1 *Lever* → 1 *Type 18 40 mm Grenade Launcher*
+- **Crafting:** 2 *Iron Bars* + 3 *Iron Ingots* + 1 *Lever* → 1 *40 mm Grenade Launcher*
 - **Ammo:** *HE 40 mm Grenade Cartridge*
 - **Launch:** Right Click
 - **Initial Velocity:** 60 m/s
 - **Rate of Fire:** 7.5 rpm
 
-#### Type 18 40 mm Revolver Grenade Launcher (18式40mm回転式てき弾銃)
+#### 40 mm Revolver Grenade Launcher (18式40mm回転式てき弾銃)
 
-<img src="docs/img/recipe_grenade_launcher_revolver.png" title="Recipe: Type 18 40 mm Revolver Grenade Launcher">
+<img src="docs/img/recipe_grenade_launcher_revolver.png" title="Recipe: 40 mm Revolver Grenade Launcher">
 
-- **Crafting:** 8 *Iron Ingots* + 1 *Type 18 40 mm Grenade Launcher* → 1 *Type 18 40 mm Revolver Grenade Launcher*
+- **Crafting:** 8 *Iron Ingots* + 1 *40 mm Grenade Launcher* → 1 *40 mm Revolver Grenade Launcher*
 - **Ammo:** *HE 40 mm Grenade Cartridge*
 - **Magazine:** Six-round revolver-type cylinder (Ammo is consumed when shot)
 - **Launch:** Right Click
 - **Initial Velocity:** 60 m/s
 - **Rate of Fire:** 18 rpm (sustained), 2 rps (rapid fire)
 
-#### Type 18 51 mm Light Mortar (18式51mm軽迫撃砲)
+#### 51 mm Light Mortar (18式51mm軽迫撃砲)
 
-<img src="docs/img/recipe_grenade_discharger.png" title="Recipe: Type 18 51 mm Grenade Discharger">
+<img src="docs/img/recipe_grenade_discharger.png" title="Recipe: 51 mm Grenade Discharger">
 
-- **Crafting:** 4 *Iron Ingots* + 1 *Type 18 40 mm Grenade Launcher* → 1 *Type 18 51 mm Grenade Discharger*
+- **Crafting:** 4 *Iron Ingots* + 1 *40 mm Grenade Launcher* → 1 *51 mm Grenade Discharger*
 - **Ammo:** *HE 51 mm Grenade Cartridge*
 - **Launch:** Sneak Right Click on Ground
 - **Initial Velocity:** 60 m/s

@@ -1,7 +1,7 @@
 
-item.type18grenadelauncher.grenade_launcher.name=18式40mmてき弾銃
-item.type18grenadelauncher.grenade_launcher_revolver.name=18式40mm回転式てき弾銃
-item.type18grenadelauncher.grenade_discharger.name=18式51mm軽迫撃砲
+item.type18grenadelauncher.grenade_launcher.name=40mmてき弾銃
+item.type18grenadelauncher.grenade_launcher_revolver.name=40mm回転式てき弾銃
+item.type18grenadelauncher.grenade_discharger.name=51mm軽迫撃砲
 item.type18grenadelauncher.grenade_40.name=40mmりゅう弾
 item.type18grenadelauncher.grenade_51.name=51mmりゅう弾
 
