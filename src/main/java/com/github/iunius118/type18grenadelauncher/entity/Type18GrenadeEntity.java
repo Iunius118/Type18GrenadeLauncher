@@ -22,10 +22,9 @@ import net.minecraft.world.WorldServer;
 public class Type18GrenadeEntity extends EntityThrowable {
     public static final String NAME = "Grenade";
     public static final int FUSE_SAFETY = 1;
-    public static final int FUSE_MAX = 150;
+    public static final int FUSE_MAX = 160;
     public static final float DIRECT_DAMAGE = 40.0F;
     public static final float INITIAL_VELOCITY = 3.0F;
-    public static final float INACCURACY = 1.0F;
     public static final ResourceLocation ID = new ResourceLocation(Type18GrenadeLauncher.MOD_ID, NAME.toLowerCase());
 
     public static final String TAG_TICKS_AGE = "age";
@@ -195,10 +194,6 @@ public class Type18GrenadeEntity extends EntityThrowable {
 
     public float getInitialVelocity() {
         return INITIAL_VELOCITY;
-    }
-
-    public float getInaccuracy() {
-        return INACCURACY;
     }
 
     public void logInfo(String type, Vec3d pos) {

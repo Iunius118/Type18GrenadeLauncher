@@ -12,12 +12,9 @@ import javax.annotation.Nonnull;
 
 public class Type18GrenadeDischargerItem extends Type18GrenadeLauncherItem {
     public static final ResourceLocation ID = new ResourceLocation(Type18GrenadeLauncher.MOD_ID, "grenade_discharger");
+    public static final float INACCURACY = 0.25F;
+    public static final float MAX_INACCURACY = 4.0F;
     public static final int COOL_DOWN = 40;
-
-    @Override
-    public int getCoolDownTime() {
-        return COOL_DOWN;
-    }
 
     @Override
     public boolean isAmmo(@Nonnull ItemStack stack) {
@@ -31,10 +28,28 @@ public class Type18GrenadeDischargerItem extends Type18GrenadeLauncherItem {
 
     @Override
     public boolean canLaunch(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
-        return playerIn.isSneaking();
+        return playerIn.isSneaking() && playerIn.onGround;
     }
 
     @Override
-    public void recoil(EntityPlayer playerIn, EnumHand handIn) {
+    public float getInaccuracy(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
+        float pitch = playerIn.rotationPitch;
+
+        if (pitch < -45.0F) {
+            return INACCURACY;
+        } else if (pitch < 0.0F) {
+            return (1.0F + pitch / 45.0F) * (MAX_INACCURACY - INACCURACY) + INACCURACY;
+        } else {
+            return MAX_INACCURACY;
+        }
+    }
+
+    @Override
+    public void coolDown(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
+        playerIn.getCooldownTracker().setCooldown(playerIn.getHeldItem(handIn).getItem(), COOL_DOWN);
+    }
+
+    @Override
+    public void recoil(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
     }
 }

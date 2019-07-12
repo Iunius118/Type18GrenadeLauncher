@@ -15,10 +15,12 @@ import net.minecraft.world.World;
 
 public class Type18GrenadeLauncherItem extends Item {
     public static final ResourceLocation ID = new ResourceLocation(Type18GrenadeLauncher.MOD_ID, "grenade_launcher");
+    public static final float INACCURACY = 1.0F;
     public static final int COOL_DOWN = 160;
 
     public Type18GrenadeLauncherItem() {
         this.setCreativeTab(CreativeTabs.COMBAT);
+        this.setMaxStackSize(1);
     }
 
     public ItemStack findAmmo(EntityPlayer player) {
@@ -101,38 +103,44 @@ public class Type18GrenadeLauncherItem extends Item {
                 Vec3d posEntity = entity.getPositionVector();
 
                 // Shoot grenade
-                entity.shoot(playerIn, playerIn.rotationPitch, playerIn.rotationYawHead, 0.0F, entity.getInitialVelocity(), entity.getInaccuracy());
+                entity.shoot(playerIn, playerIn.rotationPitch, playerIn.rotationYawHead, 0.0F, entity.getInitialVelocity(), getInaccuracy(worldIn, playerIn, handIn));
                 worldIn.spawnEntity(entity);
                 entity.logInfo("+Launched", posEntity, new Vec3d(entity.motionX, entity.motionY, entity.motionZ).normalize());
 
                 // Generate sound
                 worldIn.playSound(null, posEntity.x, posEntity.y, posEntity.z, SoundEvents.ENTITY_FIREWORK_BLAST, SoundCategory.AMBIENT, 0.5F, (1.0F + (worldIn.rand.nextFloat() - worldIn.rand.nextFloat()) * 0.2F) * 0.7F);
 
-                // Set cool down
-                playerIn.getCooldownTracker().setCooldown(stack.getItem(), this.getCoolDownTime());
+                // Cool-down
+                coolDown(worldIn, playerIn, handIn);
             }
         } else {
             // Client side
             playerIn.swingArm(handIn);
 
             if (!Type18GrenadeLauncherConfig.client.disableRecoil) {
-                recoil(playerIn, handIn);
+                recoil(worldIn, playerIn, handIn);
             }
         }
 
         return new ActionResult<>(EnumActionResult.SUCCESS, stack);
     }
 
-    public int getCoolDownTime() {
-        return COOL_DOWN;
-    }
-
     public boolean canLaunch(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
         return true;
     }
 
-    public void recoil(EntityPlayer playerIn, EnumHand handIn) {
-        float recoilYaw = (playerIn.getRNG().nextFloat() * 2.0F - 0.5F) * (handIn == EnumHand.MAIN_HAND ? 1.0F : -1.0F) * (playerIn.getPrimaryHand() == EnumHandSide.RIGHT ? 1.0F : -1.0F);
+    public float getInaccuracy(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
+        return INACCURACY;
+    }
+
+    public void coolDown(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
+        playerIn.getCooldownTracker().setCooldown(playerIn.getHeldItem(handIn).getItem(), COOL_DOWN);
+    }
+
+    public void recoil(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
+        float recoilYaw = (playerIn.getRNG().nextFloat() * 2.5F - 0.5F) * (handIn == EnumHand.MAIN_HAND ? 1.0F : -1.0F) * (playerIn.getPrimaryHand() == EnumHandSide.RIGHT ? 1.0F : -1.0F);
         playerIn.rotationYaw += recoilYaw;
+        float recoilPitch = playerIn.getRNG().nextFloat() -0.5F;
+        playerIn.rotationPitch += recoilPitch;
     }
 }
