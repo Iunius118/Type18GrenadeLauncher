@@ -10,42 +10,42 @@ Add grenade launchers and their ammunition to Minecraft with Forge.
 
 ### Grenade Launchers
 
-#### 40mm Grenade Launcher (40mmてき弾銃)
+#### Type 18 40 mm Grenade Launcher (18式40mmてき弾銃)
 
-<img src="docs/img/recipe_grenade_launcher.png" title="Recipe: 40mm Grenade Launcher">
+<img src="docs/img/recipe_grenade_launcher.png" title="Recipe: Type 18 40 mm Grenade Launcher">
 
-- Crafting: 2 *Iron Bars* + 3 *Iron Ingots* + 1 *Lever* → 1 *40mm Grenade Launcher*
-- Ammo: *HE 40mm Grenade Cartridge*
+- Crafting: 2 *Iron Bars* + 3 *Iron Ingots* + 1 *Lever* → 1 *Type 18 40 mm Grenade Launcher*
+- Ammo: *HE 40 mm Grenade Cartridge*
 - Launch: Right Click
 - Initial Velocity: 60 m/s
 - Rate of Fire: 7.5 rpm
 
-#### 51mm Grenade Discharger (51mmてき弾筒)
+#### Type 18 51 mm Light Mortar (18式51mm軽迫撃砲)
 
-<img src="docs/img/recipe_grenade_discharger.png" title="Recipe: 51mm Grenade Discharger">
+<img src="docs/img/recipe_grenade_discharger.png" title="Recipe: Type 18 51 mm Grenade Discharger">
 
-- Crafting: 4 *Iron Ingots* + 1 *40mm Grenade Launcher* → 1 *51mm Grenade Discharger*
-- Ammo: *HE 51mm Grenade Cartridge*
-- Launch: Sneak Right Click
+- Crafting: 4 *Iron Ingots* + 1 *Type 18 40 mm Grenade Launcher* → 1 *Type 18 51 mm Grenade Discharger*
+- Ammo: *HE 51 mm Grenade Cartridge*
+- Launch: Sneak Right Click on Ground
 - Initial Velocity: 60 m/s
 - Rate of Fire: 30 rpm
 
 ### Ammo
 
-#### HE 40mm Grenade Cartridge (40mm榴弾)
+#### HE 40 mm Grenade Cartridge (40mmりゅう弾)
 
-<img src="docs/img/recipe_grenade_40.png" title="Recipes: HE 40mm Grenade Cartridge">
+<img src="docs/img/recipe_grenade_40.png" title="Recipes: HE 40 mm Grenade Cartridge">
 
-- Crafting: 1 *Heavy Weighted Pressure Plate* + 1 *TNT* + 1 *Gunpowder* → 8 *HE 40mm Grenade Cartridges*
-- Crafting: 1 *HE 51mm Grenade Cartridge* → 2 *HE 40mm Grenade Cartridges*
+- Crafting: 1 *Heavy Weighted Pressure Plate* + 1 *TNT* + 1 *Gunpowder* → 8 *HE 40 mm Grenade Cartridges*
+- Crafting: 1 *HE 51 mm Grenade Cartridge* → 2 *HE 40 mm Grenade Cartridges*
 - Kill Radius: 5 m
 
-#### HE 51mm Grenade Cartridge (51mm榴弾)
+#### HE 51 mm Grenade Cartridge (51mmりゅう弾)
 
-<img src="docs/img/recipe_grenade_51.png" title="Recipes: HE 51mm Grenade Cartridge">
+<img src="docs/img/recipe_grenade_51.png" title="Recipes: HE 51 mm Grenade Cartridge">
 
-- Crafting (Saving of Iron and Sand): 1 *HE 40mm Grenade Cartridge* + 1 *Gunpowder* → 1 *HE 51mm Grenade Cartridge*
-- Crafting (Saving of Gunpowder): 2 *HE 40mm Grenade Cartridges* → 1 *HE 51mm Grenade Cartridge*
+- Crafting (Saving of Iron and Sand): 1 *HE 40 mm Grenade Cartridge* + 1 *Gunpowder* → 1 *HE 51 mm Grenade Cartridge*
+- Crafting (Saving of Gunpowder): 2 *HE 40 mm Grenade Cartridges* → 1 *HE 51 mm Grenade Cartridge*
 - Kill Radius: 10 m
 
 ## Configuration
@@ -55,7 +55,7 @@ Configuration is saved in `type18grenadelauncher.cfg`.
 ### Client
 
 - **disableRecoil** (boolean, default is `false`)
-  - Disable recoil of *40mm Grenade Launcher*
+  - Disable recoil of *Type 18 40 mm Grenade Launcher*
 
 ### Common
 
