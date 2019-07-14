@@ -4,8 +4,6 @@ Type 18 Grenade Launcher（<ruby>18式擲弾銃mod<rp>／</rp><rt>ひとはち�
 
 ※このmodで追加される兵器はすべてフィクションです。実在する兵器やその仕様とは一切関係ありません。
 
-[リポジトリ（GitHub）](https://github.com/Iunius118/Type18GrenadeLauncher)
-
 ## 前提mod
 
 - Minecraft Forge 1.12.2-14.23.5.2768 以降
@@ -94,6 +92,3 @@ Type 18 Grenade Launcher（<ruby>18式擲弾銃mod<rp>／</rp><rt>ひとはち�
   - 榴弾の発射・爆破時にコンソールにログを出力する（`false`：出力しない、`true`：出力する）
 - **grenadeDamageLevel**（整数値0～2、デフォルトは`1`)
   - 榴弾が破壊可能な対象を数字で指定する（`0`：なし、`1`：エンティティのみ、`2`：地形とエンティティ）
-
----
-Copyright (c) 2019 Iunius118
