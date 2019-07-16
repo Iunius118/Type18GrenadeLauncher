@@ -4,11 +4,11 @@ import net.minecraftforge.common.config.Config;
 
 @Config(modid = Type18GrenadeLauncher.MOD_ID, category = "")
 public class Type18GrenadeLauncherConfig {
-    @Config.LangKey("type18grenadelauncher.configgui.category.commonConfig")
-    public static CommonConfig common = new CommonConfig();
-
     @Config.LangKey("type18grenadelauncher.configgui.category.clientConfig")
     public static ClientConfig client = new ClientConfig();
+
+    @Config.LangKey("type18grenadelauncher.configgui.category.commonConfig")
+    public static CommonConfig common = new CommonConfig();
 
     public static class CommonConfig {
         @Config.Comment("Detonate grenade when it cannot be updated by unloaded chunks.")
@@ -23,11 +23,67 @@ public class Type18GrenadeLauncherConfig {
         @Config.LangKey("type18grenadelauncher.configgui.grenadeDamageLevel")
         @Config.RangeInt(min = 0, max = 2)
         public int grenadeDamageLevel = 1;
+
+        @Config.LangKey("type18grenadelauncher.configgui.category.grenade40")
+        public Type18Grenade40ItemConfig grenade40mm = new Type18Grenade40ItemConfig();
+
+        @Config.LangKey("type18grenadelauncher.configgui.category.grenade51")
+        public Type18Grenade51ItemConfig grenade51mm = new Type18Grenade51ItemConfig();
+
+        @Config.LangKey("type18grenadelauncher.configgui.category.launcher40")
+        public Type18GrenadeLauncherItemConfig launcher40mm = new Type18GrenadeLauncherItemConfig();
+
+        @Config.LangKey("type18grenadelauncher.configgui.category.launcher40Revolver")
+        public Type18RevolverGrenadeLauncherItemConfig launcher40mmRevolver = new Type18RevolverGrenadeLauncherItemConfig();
+
+        @Config.LangKey("type18grenadelauncher.configgui.category.mortar51")
+        public Type18GrenadeDischargerItemConfig mortar51mm = new Type18GrenadeDischargerItemConfig();
+
+        public static class Type18Grenade40ItemConfig {
+            @Config.Comment("Set explosive power of HE 40 mm Grenade Cartridge.")
+            @Config.LangKey("type18grenadelauncher.configgui.grenade40.power")
+            @Config.RangeDouble(min = 0.0D, max = 10.0D)
+            public double explosivePower = 3.4D;
+        }
+
+        public static class Type18Grenade51ItemConfig {
+            @Config.Comment("Set explosive power of HE 51 mm Grenade Cartridge.")
+            @Config.LangKey("type18grenadelauncher.configgui.grenade51.power")
+            @Config.RangeDouble(min = 0.0D, max = 10.0D)
+            public double explosivePower = 5.3D;
+        }
+
+        public static class Type18GrenadeLauncherItemConfig {
+            @Config.Comment("Set cool-down time of reloading 40 mm Grenade Launcher in ticks.")
+            @Config.LangKey("type18grenadelauncher.configgui.launcher40.coolDownReload")
+            public int coolDownReload = 160;
+        }
+
+        public static class Type18RevolverGrenadeLauncherItemConfig {
+            @Config.Comment("Set cool-down time of firing 40 mm Revolver Grenade Launcher in ticks.")
+            @Config.LangKey("type18grenadelauncher.configgui.launcher40Revolver.coolDownFire")
+            public int coolDownFire = 10;
+
+            @Config.Comment("Set cool-down time of reloading 40 mm Revolver Grenade Launcher in ticks.")
+            @Config.LangKey("type18grenadelauncher.configgui.launcher40Revolver.coolDownReload")
+            public int coolDownReload = 250;
+        }
+
+        public static class Type18GrenadeDischargerItemConfig {
+            @Config.Comment("Set cool-down time of reloading 51 mm Light Mortar in ticks.")
+            @Config.LangKey("type18grenadelauncher.configgui.mortar51.coolDownReload")
+            public int coolDownReload = 40;
+        }
     }
 
     public static class ClientConfig {
+        @Config.Comment("Disable to draw gun sight on HUD.")
+        @Config.LangKey("type18grenadelauncher.configgui.disableHUD")
+        public boolean disableHUD = false;
+
         @Config.Comment("Disable recoil of Grenade Launcher.")
         @Config.LangKey("type18grenadelauncher.configgui.disableRecoil")
         public boolean disableRecoil = false;
     }
 }
+

@@ -16,7 +16,6 @@ import net.minecraft.world.World;
 public class Type18GrenadeLauncherItem extends Item {
     public static final ResourceLocation ID = new ResourceLocation(Type18GrenadeLauncher.MOD_ID, "grenade_launcher");
     public static final float INACCURACY = 1.0F;
-    public static final int COOL_DOWN = 160;
 
     public Type18GrenadeLauncherItem() {
         this.setCreativeTab(CreativeTabs.COMBAT);
@@ -134,7 +133,7 @@ public class Type18GrenadeLauncherItem extends Item {
     }
 
     public void coolDown(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
-        playerIn.getCooldownTracker().setCooldown(playerIn.getHeldItem(handIn).getItem(), COOL_DOWN);
+        playerIn.getCooldownTracker().setCooldown(playerIn.getHeldItem(handIn).getItem(), Type18GrenadeLauncherConfig.common.launcher40mm.coolDownReload);
     }
 
     public void recoil(World worldIn, EntityPlayer playerIn, EnumHand handIn) {

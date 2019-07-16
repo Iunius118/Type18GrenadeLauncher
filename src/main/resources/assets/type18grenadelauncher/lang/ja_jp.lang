@@ -10,6 +10,14 @@ type18grenadelauncher.configgui.category.clientConfig=クライアント側の�
 type18grenadelauncher.configgui.category.commonConfig.tooltip=type18grenadelauncher.cfgに含まれる設定項目を設定することができます。
 type18grenadelauncher.configgui.category.commonConfig=共通の設定
 
+type18grenadelauncher.configgui.category.grenade40=40mmりゅう弾の設定
+type18grenadelauncher.configgui.category.grenade51=51mmりゅう弾の設定
+type18grenadelauncher.configgui.category.launcher40=40mmてき弾銃の設定
+type18grenadelauncher.configgui.category.launcher40Revolver=40mm回転式てき弾銃の設定
+type18grenadelauncher.configgui.category.mortar51=51mm軽迫撃砲の設定
+
+type18grenadelauncher.configgui.disableHUD.tooltip=HUDへの照準器の描画を無効にする。
+type18grenadelauncher.configgui.disableHUD=HUDの無効化
 type18grenadelauncher.configgui.disableRecoil.tooltip=てき弾銃のリコイルを無効にする。
 type18grenadelauncher.configgui.disableRecoil=リコイルを無効化
 
@@ -19,3 +27,16 @@ type18grenadelauncher.configgui.enableLog.tooltip=榴弾の発射・爆破時に
 type18grenadelauncher.configgui.enableLog=ログ出力
 type18grenadelauncher.configgui.grenadeDamageLevel.tooltip=榴弾が破壊可能な対象を数字で指定する（0：なし、1：エンティティのみ、2：地形とエンティティ）。
 type18grenadelauncher.configgui.grenadeDamageLevel=榴弾の破壊能力
+
+type18grenadelauncher.configgui.grenade40.power.tooltip=40mmりゅう弾の爆発力を設定する。
+type18grenadelauncher.configgui.grenade40.power=爆発力
+type18grenadelauncher.configgui.grenade51.power.tooltip=51mmりゅう弾の爆発力を設定する。
+type18grenadelauncher.configgui.grenade51.power=爆発力
+type18grenadelauncher.configgui.launcher40.coolDownReload.tooltip=40mmてき弾銃のリロード時間をtick単位で設定する。
+type18grenadelauncher.configgui.launcher40.coolDownReload=リロード時間
+type18grenadelauncher.configgui.launcher40Revolver.coolDownFire.tooltip=40mm回転式てき弾銃の発射間隔をtick単位で設定する。
+type18grenadelauncher.configgui.launcher40Revolver.coolDownFire=発射間隔
+type18grenadelauncher.configgui.launcher40Revolver.coolDownReload.tooltip=40mm回転式てき弾銃のリロード時間をtick単位で設定する。
+type18grenadelauncher.configgui.launcher40Revolver.coolDownReload=リロード時間
+type18grenadelauncher.configgui.mortar51.coolDownReload.tooltip=51mm軽迫撃砲のリロード時間をtick単位で設定する。
+type18grenadelauncher.configgui.mortar51.coolDownReload=リロード時間

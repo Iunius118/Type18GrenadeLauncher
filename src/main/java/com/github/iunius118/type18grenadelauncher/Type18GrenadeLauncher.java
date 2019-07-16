@@ -96,7 +96,7 @@ public class Type18GrenadeLauncher {
 
         if (entity instanceof Type18GrenadeEntity
                 && !entity.world.isRemote
-                && Type18GrenadeLauncher.config.common.detonateWhenCannotUpdate
+                && Type18GrenadeLauncherConfig.common.detonateWhenCannotUpdate
                 && !event.getCanUpdate()) {
             // Grenade is entering unloaded chunk
             Type18GrenadeEntity grenadeEntity = (Type18GrenadeEntity) entity;

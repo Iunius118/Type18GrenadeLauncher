@@ -32,7 +32,7 @@ public class Type18GrenadeEntity extends EntityThrowable {
     public static final String TAG_THROWER = "owner";
 
     public int ticksAge = 0;
-    public float power = Type18Grenade40Item.POWER;
+    public float power = (float) Type18GrenadeLauncherConfig.common.grenade40mm.explosivePower;
     public String throwerName = "?";
 
     public Type18GrenadeEntity(World worldIn, EntityLivingBase throwerIn, float power) {
@@ -197,13 +197,13 @@ public class Type18GrenadeEntity extends EntityThrowable {
     }
 
     public void logInfo(String type, Vec3d pos) {
-        if (Type18GrenadeLauncher.config.common.enableLog) {
+        if (Type18GrenadeLauncherConfig.common.enableLog) {
             Type18GrenadeLauncher.logger.info("{} #{} [{}] at {}, launched by {}", NAME, this.getUniqueID(), type, pos.toString(), this.throwerName);
         }
     }
 
     public void logInfo(String type, Vec3d pos, Vec3d direction) {
-        if (Type18GrenadeLauncher.config.common.enableLog) {
+        if (Type18GrenadeLauncherConfig.common.enableLog) {
             Type18GrenadeLauncher.logger.info("{} #{} [{}] at {}, launched by {} for {}", NAME, this.getUniqueID(), type, pos.toString(), this.throwerName, direction.toString());
         }
     }
