@@ -3,11 +3,16 @@ package com.github.iunius118.type18grenadelauncher.item;
 import com.github.iunius118.type18grenadelauncher.Type18GrenadeLauncher;
 import com.github.iunius118.type18grenadelauncher.Type18GrenadeLauncherConfig;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.SoundEvents;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumHand;
+import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.SoundCategory;
+import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
+import net.minecraft.world.WorldServer;
 
 import javax.annotation.Nonnull;
 
@@ -42,6 +47,18 @@ public class Type18GrenadeDischargerItem extends Type18GrenadeLauncherItem {
         } else {
             return MAX_INACCURACY;
         }
+    }
+
+    @Override
+    public void playFiringSound(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
+        Vec3d soundPos = playerIn.getLook(1.0F).scale(2.0D).add(playerIn.posX, playerIn.posY + playerIn.getEyeHeight(), playerIn.posZ);
+
+        if (worldIn instanceof WorldServer) {
+            WorldServer worldServer = (WorldServer) worldIn;
+            worldServer.spawnParticle(EnumParticleTypes.EXPLOSION_LARGE, soundPos.x, soundPos.y, soundPos.z, 1, 0.0D, 0.0D, 0.0D, 0.0D, new int[0]);
+        }
+
+        worldIn.playSound(null, soundPos.x, soundPos.y, soundPos.z, SoundEvents.ENTITY_GENERIC_EXPLODE, SoundCategory.PLAYERS, 0.5F, (1.0F + (worldIn.rand.nextFloat() - worldIn.rand.nextFloat()) * 0.2F) * 0.7F);
     }
 
     @Override

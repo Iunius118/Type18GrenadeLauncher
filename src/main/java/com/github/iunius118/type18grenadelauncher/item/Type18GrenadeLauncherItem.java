@@ -101,13 +101,13 @@ public class Type18GrenadeLauncherItem extends Item {
 
                 Vec3d posEntity = entity.getPositionVector();
 
-                // Shoot grenade
-                entity.shoot(playerIn, playerIn.rotationPitch, playerIn.rotationYawHead, 0.0F, entity.getInitialVelocity(), getInaccuracy(worldIn, playerIn, handIn));
+                // Launch grenade
+                entity.shoot(playerIn, playerIn.rotationPitch, playerIn.rotationYaw, 0.0F, entity.getInitialVelocity(), getInaccuracy(worldIn, playerIn, handIn));
                 worldIn.spawnEntity(entity);
                 entity.logInfo("+Launched", posEntity, new Vec3d(entity.motionX, entity.motionY, entity.motionZ).normalize());
 
                 // Generate sound
-                worldIn.playSound(null, posEntity.x, posEntity.y, posEntity.z, SoundEvents.ENTITY_FIREWORK_BLAST, SoundCategory.AMBIENT, 0.5F, (1.0F + (worldIn.rand.nextFloat() - worldIn.rand.nextFloat()) * 0.2F) * 0.7F);
+                playFiringSound(worldIn, playerIn, handIn);
 
                 // Cool-down
                 coolDown(worldIn, playerIn, handIn);
@@ -130,6 +130,11 @@ public class Type18GrenadeLauncherItem extends Item {
 
     public float getInaccuracy(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
         return INACCURACY;
+    }
+
+    public void playFiringSound(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
+        Vec3d soundPos = playerIn.getLook(1.0F).scale(2.0D).add(playerIn.posX, playerIn.posY + playerIn.getEyeHeight(), playerIn.posZ);
+        worldIn.playSound(null, soundPos.x, soundPos.y, soundPos.z, SoundEvents.ENTITY_FIREWORK_BLAST, SoundCategory.PLAYERS, 0.5F, (1.0F + (worldIn.rand.nextFloat() - worldIn.rand.nextFloat()) * 0.2F) * 0.7F);
     }
 
     public void coolDown(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
