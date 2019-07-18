@@ -84,6 +84,23 @@ public class Type18GrenadeLauncherConfig {
         @Config.Comment("Disable recoil of Grenade Launcher.")
         @Config.LangKey("type18grenadelauncher.configgui.disableRecoil")
         public boolean disableRecoil = false;
+
+        @Config.LangKey("type18grenadelauncher.configgui.category.gunSight")
+        public Type18SightHUDConfig gunSight = new Type18SightHUDConfig();
+
+        public static class Type18SightHUDConfig {
+            @Config.Comment("Set value of color (A8R8G8B8 format in 32-bit signed integer) for gun sight.")
+            @Config.LangKey("type18grenadelauncher.configgui.sightHUD.color")
+            public int color = -1;
+
+            @Config.Comment("Set values of angles for gun sight.")
+            @Config.LangKey("type18grenadelauncher.configgui.sightHUD.listAngles")
+            public double[] listAngles = {0.0D, 5.3D, 12.8D, 28.0D, 43.2D, 63.8D, 77.6D, 90.0D};
+
+            @Config.Comment("Set strings of range for gun sight.")
+            @Config.LangKey("type18grenadelauncher.configgui.sightHUD.listRange")
+            public String[] listRange = {"", "50", "100", "150", "150", "100", "50", "0"};
+        }
     }
 }
 

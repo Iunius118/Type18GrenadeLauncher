@@ -10,16 +10,30 @@ type18grenadelauncher.configgui.category.clientConfig=クライアント側の�
 type18grenadelauncher.configgui.category.commonConfig.tooltip=type18grenadelauncher.cfgに含まれる設定項目を設定することができます。
 type18grenadelauncher.configgui.category.commonConfig=共通の設定
 
+type18grenadelauncher.configgui.category.gunSight.tooltip=照準器に関する設定項目。
+type18grenadelauncher.configgui.category.gunSight=照準器の設定
+type18grenadelauncher.configgui.category.grenade40.tooltip=40mmりゅう弾に関する設定項目。
 type18grenadelauncher.configgui.category.grenade40=40mmりゅう弾の設定
+type18grenadelauncher.configgui.category.grenade51.tooltip=51mmりゅう弾に関する設定項目。
 type18grenadelauncher.configgui.category.grenade51=51mmりゅう弾の設定
+type18grenadelauncher.configgui.category.launcher40.tooltip=40mmてき弾銃に関する設定項目。
 type18grenadelauncher.configgui.category.launcher40=40mmてき弾銃の設定
+type18grenadelauncher.configgui.category.launcher40Revolver.tooltip=40mm回転式てき弾銃に関する設定項目。
 type18grenadelauncher.configgui.category.launcher40Revolver=40mm回転式てき弾銃の設定
+type18grenadelauncher.configgui.category.mortar51.tooltip=51mm軽迫撃砲に関する設定項目。
 type18grenadelauncher.configgui.category.mortar51=51mm軽迫撃砲の設定
 
 type18grenadelauncher.configgui.disableHUD.tooltip=HUDへの照準器の描画を無効にする。
 type18grenadelauncher.configgui.disableHUD=HUDの無効化
 type18grenadelauncher.configgui.disableRecoil.tooltip=てき弾銃のリコイルを無効にする。
 type18grenadelauncher.configgui.disableRecoil=リコイルを無効化
+
+type18grenadelauncher.configgui.sightHUD.color.tooltip=照準器の描画色をA8R8G8B8フォーマットの32ビット符号付整数で指定する。
+type18grenadelauncher.configgui.sightHUD.color=描画色
+type18grenadelauncher.configgui.sightHUD.listAngles.tooltip=照準器に表示するための射角のリスト
+type18grenadelauncher.configgui.sightHUD.listAngles=角度のリスト
+type18grenadelauncher.configgui.sightHUD.listRange.tooltip=照準器に表示するための距離のリスト
+type18grenadelauncher.configgui.sightHUD.listRange=距離のリスト
 
 type18grenadelauncher.configgui.detonateWhenCannotUpdate.tooltip=凍結チャンクによって更新できなくなった榴弾を自爆させる。
 type18grenadelauncher.configgui.detonateWhenCannotUpdate=更新できない榴弾を爆破

@@ -10,16 +10,30 @@ type18grenadelauncher.configgui.category.clientConfig=Client Settings
 type18grenadelauncher.configgui.category.commonConfig.tooltip=This is where you can edit the settings contained in type18grenadelauncher.cfg.
 type18grenadelauncher.configgui.category.commonConfig=Common Settings
 
+type18grenadelauncher.configgui.category.gunSight.tooltip=Settings of gun sight on HUD.
+type18grenadelauncher.configgui.category.gunSight=Sight Settings
+type18grenadelauncher.configgui.category.grenade40.tooltip=Setting of HE 40 mm Grenade Cartridge.
 type18grenadelauncher.configgui.category.grenade40=HE 40 mm Grenade Cartridge Setting
+type18grenadelauncher.configgui.category.grenade51.tooltip=Setting of HE 51 mm Grenade Cartridge.
 type18grenadelauncher.configgui.category.grenade51=HE 51 mm Grenade Cartridge Setting
+type18grenadelauncher.configgui.category.launcher40.tooltip=Setting of 40 mm Grenade Launcher.
 type18grenadelauncher.configgui.category.launcher40=40 mm Grenade Launcher Setting
+type18grenadelauncher.configgui.category.launcher40Revolver.tooltip=Settings of 40 mm Revolver Grenade Launcher.
 type18grenadelauncher.configgui.category.launcher40Revolver=40 mm Revolver Grenade Launcher Settings
+type18grenadelauncher.configgui.category.mortar51.tooltip=Setting of 51 mm Light Mortar.
 type18grenadelauncher.configgui.category.mortar51=51 mm Light Mortar Setting
 
 type18grenadelauncher.configgui.disableHUD.tooltip=Disable to draw gun sight on HUD.
 type18grenadelauncher.configgui.disableHUD=Disable HUD
 type18grenadelauncher.configgui.disableRecoil.tooltip=Disable recoil of Grenade Launchers.
 type18grenadelauncher.configgui.disableRecoil=Disable Recoil
+
+type18grenadelauncher.configgui.sightHUD.color.tooltip=Set value of color (A8R8G8B8 format in 32-bit signed integer) for gun sight.
+type18grenadelauncher.configgui.sightHUD.color=Color
+type18grenadelauncher.configgui.sightHUD.listAngles.tooltip=Set values of angles for gun sight.
+type18grenadelauncher.configgui.sightHUD.listAngles=List of Angles
+type18grenadelauncher.configgui.sightHUD.listRange.tooltip=Set strings of range for gun sight.
+type18grenadelauncher.configgui.sightHUD.listRange=List of Range
 
 type18grenadelauncher.configgui.detonateWhenCannotUpdate.tooltip=Detonate grenade when it cannot be updated by unloaded chunks.
 type18grenadelauncher.configgui.detonateWhenCannotUpdate=Detonate When Cannot Update
