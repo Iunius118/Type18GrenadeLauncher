@@ -28,11 +28,11 @@ type18grenadelauncher.configgui.disableHUD=HUDの無効化
 type18grenadelauncher.configgui.disableRecoil.tooltip=てき弾銃のリコイルを無効にする。
 type18grenadelauncher.configgui.disableRecoil=リコイルを無効化
 
-type18grenadelauncher.configgui.sightHUD.color.tooltip=照準器の描画色をA8R8G8B8フォーマットの32ビット符号付整数で指定する。
+type18grenadelauncher.configgui.sightHUD.color.tooltip=照準器の描画色をA8R8G8B8フォーマットの32ビット符号付き整数で指定する。
 type18grenadelauncher.configgui.sightHUD.color=描画色
-type18grenadelauncher.configgui.sightHUD.listAngles.tooltip=照準器に表示するための射角のリスト
+type18grenadelauncher.configgui.sightHUD.listAngles.tooltip=照準器に表示する射角のリスト
 type18grenadelauncher.configgui.sightHUD.listAngles=角度のリスト
-type18grenadelauncher.configgui.sightHUD.listRange.tooltip=照準器に表示するための距離のリスト
+type18grenadelauncher.configgui.sightHUD.listRange.tooltip=照準器に表示する距離のリスト
 type18grenadelauncher.configgui.sightHUD.listRange=距離のリスト
 
 type18grenadelauncher.configgui.detonateWhenCannotUpdate.tooltip=凍結チャンクによって更新できなくなった榴弾を自爆させる。
