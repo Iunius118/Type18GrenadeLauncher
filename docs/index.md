@@ -6,11 +6,11 @@ Type 18 Grenade Launcher（<ruby>18式擲弾銃mod<rp>／</rp><rt>ひとはち�
 
 ## 前提mod
 
-- Minecraft Forge 1.12.2-14.23.5.2768 以降
+- Minecraft Forge 1.14.4-28.1.0 以降
 
 ## ダウンロード
 
-- [v1.12.2-1.1.2.0 (Type18GrenadeLauncher-1.12-2-1.1.2.0.jar)](https://github.com/Iunius118/Type18GrenadeLauncher/releases/download/v1.12.2-1.1.2.0/Type18GrenadeLauncher-1.12-2-1.1.2.0.jar)
+- [v1.14.4-1.2.0.0 (Type18GrenadeLauncher-1.14.4-1.2.0.0.jar)](https://github.com/Iunius118/Type18GrenadeLauncher/releases/download/v1.14.4-1.2.0.0/Type18GrenadeLauncher-1.14.4-1.2.0.0.jar)
 
 ## 説明
 
@@ -79,57 +79,65 @@ Type 18 Grenade Launcher（<ruby>18式擲弾銃mod<rp>／</rp><rt>ひとはち�
 
 ## 設定
 
-設定は`config`フォルダの`type18grenadelauncher.cfg`に保存される.
+設定は`config`フォルダの`type18grenadelauncher-common.toml`と`type18grenadelauncher-client.toml`（クライアント側のみ）に保存される。v1.12.2以前の.cfgファイルとは互換性がなく、一部の項目名やデフォルト値が変更されているので注意。
 
-### Client
+### type18grenadelauncher-common.toml
 
-- **disableHUD**（真偽値、デフォルトは`false`）
-  - HUDへの照準器の描画を無効にする
-- **disableRecoil**（真偽値、デフォルトは`false`）
-  - てき弾銃のリコイル（発射時の反動）を無効にする（`false`：リコイルあり、`true`：リコイルなし）
+クライアント側とサーバー側共通の設定
 
-#### gunsight
+#### [common]
 
-- **color**（整数値、デフォルトは`-1`）
-  - 照準器の描画色をA8R8G8B8フォーマットの32ビット符号付き整数で指定する
-- **listAngles**（double値の配列）
-  - 照準器に表示する射角のリスト
-- **listRange**（文字列の配列）
-  - 照準器に表示する射角に対応した距離のリスト
-
-### Common
-
-- **detonateWhenCannotUpdate**（真偽値、デフォルトは`true`）
-  - 凍結チャンクによって更新できなくなった榴弾を自爆させる（`true`：自爆する、`false`：自爆しない）
 - **enableLog**（真偽値、デフォルトは`false`）
   - 榴弾の発射・爆破時にコンソールにログを出力する（`false`：出力しない、`true`：出力する）
+- **detonateWhenCannotUpdate**（真偽値、デフォルトは`true`）
+  - 凍結チャンクによって更新できなくなった榴弾を自爆させる（`true`：自爆する、`false`：自爆しない）
 - **grenadeDamageLevel**（整数値 0～2、デフォルトは`1`）
   - 榴弾が破壊可能な対象を数字で指定する（`0`：なし、`1`：エンティティのみ、`2`：地形とエンティティ）
 
-#### grenade40mm
+#### [common.grenade40mm]
 
 - **explosivePower**（double値 0.0～10.0、デフォルトは`3.4`）
   - 40mmりゅう弾の爆発力を設定する
 
-#### grenade51mm
+#### [common.grenade51mm]
 
 - **explosivePower**（double値 0.0～10.0、デフォルトは`5.3`）
   - 51mmりゅう弾の爆発力を設定する
 
-#### launcher40mm
+#### [common.launcher40mm]
 
-- **coolDownReload**（整数値、デフォルトは`160`）
+- **reloadingCoolDownTimeTicks**（整数値 0～72000、デフォルトは`160`）
   - 40mmてき弾銃のリロード時間をtick単位で設定する
 
-#### launcher40mmrevolver
+#### [common.launcher40mmRevolver]
 
-- **coolDownFire**（整数値、デフォルトは`10`）
+- **firingCoolDownTimeTicks**（整数値 0～72000、デフォルトは`10`）
   - 40mm回転式てき弾銃の発射間隔をtick単位で設定する
 
-- **coolDownReload**（整数値、デフォルトは`250`）
+- **reloadingCoolDownTimeTicks**（整数値 0～72000、デフォルトは`250`）
   - 40mm回転式てき弾銃のリロード時間をtick単位で設定する
 
-#### mortar51mm
+#### [common.mortar51mm]
 
-- **coolDownReload**（整数値、デフォルトは`40`）
+- **reloadingCoolDownTimeTicks**（整数値 0～72000、デフォルトは`40`）
   - 51mm軽迫撃砲のリロード時間をtick単位で設定する
+
+### type18grenadelauncher-client.toml
+
+クライアント側のみの設定
+
+#### [client]
+
+- **enableRecoil**（真偽値、デフォルトは`true`）
+  - てき弾銃のリコイル（発射時の反動）を無効にする（`true`：リコイルあり、`false`：リコイルなし）
+- **enableHUD**（真偽値、デフォルトは`true`）
+  - HUDへの照準器の描画を無効にする
+
+#### [client.sightHUD]
+
+- **color**（整数値、デフォルトは`-1`）
+  - 照準器の描画色をA8R8G8B8フォーマットの32ビット符号付き整数で指定する
+- **angleListDegrees**（double値の配列、デフォルトは`[0.0, 5.3, 12.8, 28.0, 43.2, 63.8, 77.6, 90.0]`）
+  - 照準器に表示する射角（単位：度）のリスト
+- **rangeList**（文字列の配列、デフォルトは`["", "50", "100", "150", "150", "100", "50", "0"]`）
+  - 照準器に表示する射角に対応した距離のリスト

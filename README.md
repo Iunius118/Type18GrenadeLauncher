@@ -4,9 +4,12 @@ Add grenade launchers and their ammunition to Minecraft with Forge.
 
 ## Release
 
-- [v1.12.2-1.1.2.0](https://github.com/Iunius118/Type18GrenadeLauncher/releases/tag/v1.12.2-1.1.2.0)
+- [v1.14.4-1.2.0.0](https://github.com/Iunius118/Type18GrenadeLauncher/releases/tag/v1.14.4-1.2.0.0)
+- [v1.12.2-1.1.2.0](https://github.com/Iunius118/Type18GrenadeLauncher/releases/tag/v1.12.2-1.1.2.0) ([README](https://github.com/Iunius118/Type18GrenadeLauncher/blob/1.12.2/README.md))
 
 ## Description
+
+- v1.14.4-1.2.0.0
 
 ### Grenade Launchers
 
@@ -60,63 +63,6 @@ Gun sight will be displayed on HUD when holding Grenade Launcher on hand and sne
 - **Crafting (Saving of Iron and Sand):** 1 *HE 40 mm Grenade Cartridge* + 1 *Gunpowder* → 1 *HE 51 mm Grenade Cartridge*
 - **Crafting (Saving of Gunpowder):** 2 *HE 40 mm Grenade Cartridges* → 1 *HE 51 mm Grenade Cartridge*
 - **Kill Radius:** 10 m
-
-## Configuration
-
-Configuration is saved in `type18grenadelauncher.cfg`.
-
-### Client
-
-- **disableHUD** (boolean, default is `false`)
-  - Disable to draw gun sight on HUD
-- **disableRecoil** (boolean, default is `false`)
-  - Disable recoil of Grenade Launchers
-
-#### gunsight
-
-- **color** (integer, default is `-1`)
-  - Set value of color (A8R8G8B8 format in 32-bit signed integer) for gun sight
-- **listAngles** (array of double)
-  - Set values of angles for gun sight
-- **listRange** (array of string)
-  - Set strings of range for gun sight
-
-### Common
-
-- **detonateWhenCannotUpdate** (boolean, default is `true`)
-  - Detonate grenade when it cannot be updated by unloaded chunks
-- **enableLog** (boolean, default is `false`)
-  - Enable to log grenade's launching and detonating
-- **grenadeDamageLevel** (integer 0–2, default is `1`)
-  - Set grenade's damage (0: none, 1: entities, 2: terrain and entities)
-
-#### grenade40mm
-
-- **explosivePower** (double 0.0-10.0, default is `3.4`)
-  - Set explosive power of HE 40 mm Grenade Cartridge
-
-#### grenade51mm
-
-- **explosivePower** (double 0.0-10.0, default is `5.3`)
-  - Set explosive power of HE 51 mm Grenade Cartridge
-
-#### launcher40mm
-
-- **coolDownReload** (integer, default is `160`)
-  - Set cool-down time of reloading 40 mm Grenade Launcher in ticks
-
-#### launcher40mmrevolver
-
-- **coolDownFire** (integer, default is `10`)
-  - Set cool-down time of firing 40 mm Revolver Grenade Launcher in ticks
-
-- **coolDownReload** (integer, default is `250`)
-  - Set cool-down time of reloading 40 mm Revolver Grenade Launcher in ticks
-
-#### mortar51mm
-
-- **coolDownReload** (integer, default is `40`)
-  - Set cool-down time of reloading 51 mm Light Mortar in ticks
 
 ---
 Copyright (c) 2019 Iunius118
