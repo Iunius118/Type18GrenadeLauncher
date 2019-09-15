@@ -1,15 +1,14 @@
 package com.github.iunius118.type18grenadelauncher.client.renderer.gui;
 
-import com.github.iunius118.type18grenadelauncher.Type18GrenadeLauncherConfig;
+import com.github.iunius118.type18grenadelauncher.config.Type18GrenadeLauncherConfig;
+import com.mojang.blaze3d.platform.GlStateManager;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.FontRenderer;
-import net.minecraft.client.gui.ScaledResolution;
 import net.minecraft.client.renderer.BufferBuilder;
-import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.PlayerEntity;
 import org.apache.commons.lang3.tuple.Pair;
 import org.lwjgl.opengl.GL11;
 
@@ -25,31 +24,27 @@ public class Type18SightHUDRenderer {
     private float alpha = 1.0F;
 
     public void doRenderer(float partialTicks) {
-        if (rangeIndicator == null && !createRangeIndicator()) {
-            return;
-        }
+        Minecraft mc = Minecraft.getInstance();
+        PlayerEntity player = mc.player;
 
-        EntityPlayer player = Minecraft.getMinecraft().player;
-
-        if (!player.isSneaking()) {
+        if (!player.isSneaking() || !createRangeIndicator()) {
             return;
         }
 
         Tessellator tessellator = Tessellator.getInstance();
         BufferBuilder vertexBuffer = tessellator.getBuffer();
-        Minecraft mc = Minecraft.getMinecraft();
-        ScaledResolution scaledResolution = new ScaledResolution(mc);
         FontRenderer fontRenderer = mc.fontRenderer;
-        double width = scaledResolution.getScaledWidth_double();
-        double height = scaledResolution.getScaledHeight_double();
+        double width = mc.mainWindow.getScaledWidth();
+        double height = mc.mainWindow.getScaledHeight();
         Entity viewEntity = mc.getRenderViewEntity();
         float pitch = viewEntity.prevRotationPitch + (viewEntity.rotationPitch - viewEntity.prevRotationPitch) * partialTicks;
+        int hudColor = Type18GrenadeLauncherConfig.CLIENT.sightHUD.color.get();
 
-        GlStateManager.disableDepth();
+        GlStateManager.disableDepthTest();
         GlStateManager.enableBlend();
-        setColor(Type18GrenadeLauncherConfig.client.gunSight.color);
-        GlStateManager.color(red, green, blue, alpha);
-        GlStateManager.glLineWidth(1.0F);
+        setColor(hudColor);
+        GlStateManager.color4f(red, green, blue, alpha);
+        GlStateManager.lineWidth(1.0F);
 
         for (Pair<Double, String> index : rangeIndicator) {
             double angle = index.getLeft() + pitch;
@@ -60,7 +55,7 @@ public class Type18SightHUDRenderer {
 
             double y = (1 - Math.tan(angle * Math.PI / 180.0D) * cotHalfFOV) * height / 2;
 
-            GlStateManager.disableTexture2D();
+            GlStateManager.disableTexture();
 
             vertexBuffer.begin(GL11.GL_LINES, DefaultVertexFormats.POSITION);
             vertexBuffer.pos(width * 0.4625D, y, 0.0D).endVertex();
@@ -69,12 +64,12 @@ public class Type18SightHUDRenderer {
             vertexBuffer.pos(width * 0.5375D, y, 0.0D).endVertex();
             tessellator.draw();
 
-            GlStateManager.enableTexture2D();
+            GlStateManager.enableTexture();
 
-            fontRenderer.drawString(index.getRight(), (float) width * 0.55F, (float) y - fontRenderer.FONT_HEIGHT / 2.0F, Type18GrenadeLauncherConfig.client.gunSight.color, false);
+            fontRenderer.drawString(index.getRight(), (float) width * 0.55F, (float) y - fontRenderer.FONT_HEIGHT / 2.0F, hudColor);
         }
 
-        GlStateManager.enableDepth();
+        GlStateManager.enableDepthTest();
     }
 
     private void setColor(int color) {
@@ -95,8 +90,8 @@ public class Type18SightHUDRenderer {
     private boolean createRangeIndicator() {
         List<Pair<Double, String>> list = new ArrayList<>();
 
-        double[] listAngles = Type18GrenadeLauncherConfig.client.gunSight.listAngles;
-        String[] listRange = Type18GrenadeLauncherConfig.client.gunSight.listRange;
+        List<Double> listAngles = Type18GrenadeLauncherConfig.CLIENT.sightHUD.angleList.get();
+        List<String> listRange = Type18GrenadeLauncherConfig.CLIENT.sightHUD.rangeList.get();
         int index = 0;
 
         for(double angle : listAngles) {
@@ -105,7 +100,7 @@ public class Type18SightHUDRenderer {
                 continue;
             }
 
-            String range = index < listRange.length ? listRange[index] : "";
+            String range = index < listRange.size() ? listRange.get(index) : "";
             list.add(Pair.of(angle, range));
             index++;
         }

@@ -1,64 +1,94 @@
 package com.github.iunius118.type18grenadelauncher;
 
 import com.github.iunius118.type18grenadelauncher.client.ClientEventHandler;
+import com.github.iunius118.type18grenadelauncher.client.renderer.entity.Type18GrenadeRenderer;
+import com.github.iunius118.type18grenadelauncher.config.Type18GrenadeLauncherConfig;
 import com.github.iunius118.type18grenadelauncher.entity.Type18GrenadeEntity;
 import com.github.iunius118.type18grenadelauncher.item.*;
+import net.minecraft.data.DataGenerator;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityClassification;
+import net.minecraft.entity.EntityType;
 import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.math.RayTraceResult;
+import net.minecraft.util.math.EntityRayTraceResult;
+import net.minecraft.world.server.ServerWorld;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.event.entity.EntityEvent;
+import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.ModLoadingContext;
+import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
-import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import net.minecraftforge.fml.common.registry.EntityEntry;
-import net.minecraftforge.fml.common.registry.EntityEntryBuilder;
-import net.minecraftforge.fml.common.registry.GameRegistry;
+import net.minecraftforge.fml.config.ModConfig;
+import net.minecraftforge.fml.event.lifecycle.*;
+import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.util.HashMap;
 import java.util.Map;
 
-@Mod(
-        modid = Type18GrenadeLauncher.MOD_ID,
-        name = Type18GrenadeLauncher.MOD_NAME,
-        version = Type18GrenadeLauncher.MOD_VERSION,
-        dependencies = Type18GrenadeLauncher.MOD_DEPENDENCIES)
-@Mod.EventBusSubscriber
+@Mod(Type18GrenadeLauncher.MOD_ID)
 public class Type18GrenadeLauncher {
     public static final String MOD_ID = "type18grenadelauncher";
     public static final String MOD_NAME = "Type 18 Grenade Launcher";
-    public static final String MOD_VERSION = "1.12-2-1.1.2.0";
-    public static final String MOD_DEPENDENCIES = "required-after:forge@[1.12.2-14.23.3.2768,)";
 
-    public static final boolean DEBUG = false;
+    public static final boolean DEBUG = true;
 
-    public static Logger logger;
-    public static final Type18GrenadeLauncherConfig config = new Type18GrenadeLauncherConfig();
+    public static final Logger LOGGER = LogManager.getLogger(MOD_NAME);
 
-    @GameRegistry.ObjectHolder(MOD_ID)
-    public static class Items {
-        public static final Item GRENADE_LAUNCHER = null;
-        public static final Item GRENADE_LAUNCHER_REVOLVER = null;
-        public static final Item GRENADE_DISCHARGER = null;
-        public static final Item GRENADE_40 = null;
-        public static final Item GRENADE_51 = null;
+    public Type18GrenadeLauncher() {
+        // Register lifecycle event listeners
+        final IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
+        modEventBus.addListener(this::preInit);
+        modEventBus.addListener(this::initServer);
+        modEventBus.addListener(this::initClient);
+        modEventBus.addListener(this::postInit);
+        modEventBus.register(Type18GrenadeLauncherConfig.class);
+
+        // Register config handlers
+        ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, Type18GrenadeLauncherConfig.commonSpec);
+        ModLoadingContext.get().registerConfig(ModConfig.Type.CLIENT, Type18GrenadeLauncherConfig.clientSpec);
+
+        // Register event handlers
+        MinecraftForge.EVENT_BUS.register(this);
     }
 
+    public static class Items {
+        public static final Item GRENADE_LAUNCHER = new Type18GrenadeLauncherItem().setRegistryName(Type18GrenadeLauncherItem.ID);
+        public static final Item GRENADE_LAUNCHER_REVOLVER = new Type18RevolverGrenadeLauncherItem().setRegistryName(Type18RevolverGrenadeLauncherItem.ID);
+        public static final Item GRENADE_DISCHARGER = new Type18GrenadeDischargerItem().setRegistryName(Type18GrenadeDischargerItem.ID);
+        public static final Item GRENADE_40 = new Type18Grenade40Item().setRegistryName(Type18Grenade40Item.ID);
+        public static final Item GRENADE_51 = new Type18Grenade51Item().setRegistryName(Type18Grenade51Item.ID);
+    }
 
-    @Mod.EventHandler
-    public void preInit(FMLPreInitializationEvent event) {
-        logger = event.getModLog();
+    public static class EntityTypes {
+        public static EntityType<Type18GrenadeEntity> GRENADE;
+    }
 
-        if (event.getSide().isClient()) {
-            MinecraftForge.EVENT_BUS.register(new ClientEventHandler());
-        }
+    private void preInit(final FMLCommonSetupEvent event) {
+
+    }
+
+    private void initServer(final FMLDedicatedServerSetupEvent event) {
+
+    }
+
+    private void initClient(final FMLClientSetupEvent event) {
+        // Register client-side mod event handler
+        MinecraftForge.EVENT_BUS.register(new ClientEventHandler());
+        // Register Grenade entity renderer
+        RenderingRegistry.registerEntityRenderingHandler(Type18GrenadeEntity.class, Type18GrenadeRenderer::new);
+    }
+
+    private void postInit(InterModProcessEvent event) {
+
     }
 
     @SubscribeEvent
-    public static void remapItems(RegistryEvent.MissingMappings<Item> mappings) {
+    public void remapItems(RegistryEvent.MissingMappings<Item> mappings) {
         final Map<ResourceLocation, Item> remappingItemMap = new HashMap<>();
         remappingItemMap.put(new ResourceLocation(MOD_ID, "type_18_grenade_launcher"), Items.GRENADE_LAUNCHER);
         remappingItemMap.put(new ResourceLocation(MOD_ID, "type_18_grenade_discharger"), Items.GRENADE_DISCHARGER);
@@ -71,37 +101,42 @@ public class Type18GrenadeLauncher {
                 .forEach(mapping -> mapping.remap(remappingItemMap.get(mapping.key)));
     }
 
-    @SubscribeEvent
-    public static void registerItems(RegistryEvent.Register<Item> event) {
-        event.getRegistry().registerAll(
-                new Type18GrenadeLauncherItem().setRegistryName(Type18GrenadeLauncherItem.ID).setTranslationKey(Type18GrenadeLauncher.MOD_ID + "." + Type18GrenadeLauncherItem.ID.getPath()),
-                new Type18RevolverGrenadeLauncherItem().setRegistryName(Type18RevolverGrenadeLauncherItem.ID).setTranslationKey(Type18GrenadeLauncher.MOD_ID + "." + Type18RevolverGrenadeLauncherItem.ID.getPath()),
-                new Type18GrenadeDischargerItem().setRegistryName(Type18GrenadeDischargerItem.ID).setTranslationKey(Type18GrenadeLauncher.MOD_ID + "." + Type18GrenadeDischargerItem.ID.getPath()),
-                new Type18Grenade40Item().setRegistryName(Type18Grenade40Item.ID).setTranslationKey(Type18GrenadeLauncher.MOD_ID + "." + Type18Grenade40Item.ID.getPath()),
-                new Type18Grenade51Item().setRegistryName(Type18Grenade51Item.ID).setTranslationKey(Type18GrenadeLauncher.MOD_ID + "." + Type18Grenade51Item.ID.getPath())
-        );
+    @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
+    public static class RegistryEvents {
+        @SubscribeEvent
+        public static void registerItems(RegistryEvent.Register<Item> event) {
+            event.getRegistry().registerAll(
+                    Items.GRENADE_LAUNCHER,
+                    Items.GRENADE_LAUNCHER_REVOLVER,
+                    Items.GRENADE_DISCHARGER,
+                    Items.GRENADE_40,
+                    Items.GRENADE_51
+            );
+        }
 
+        @SubscribeEvent
+        public static void registerEntities(RegistryEvent.Register<EntityType<?>> event) {
+            EntityTypes.GRENADE = EntityType.Builder.<Type18GrenadeEntity>create(Type18GrenadeEntity::new, EntityClassification.MISC).setCustomClientFactory(Type18GrenadeEntity::new).size(0.25F, 0.25F).setTrackingRange(256).setUpdateInterval(40).setShouldReceiveVelocityUpdates(true).build(Type18GrenadeEntity.ID.toString());
+            EntityTypes.GRENADE.setRegistryName(Type18GrenadeEntity.ID);
+
+            event.getRegistry().registerAll(
+                    EntityTypes.GRENADE
+            );
+        }
     }
 
     @SubscribeEvent
-    public static void registerEntities(RegistryEvent.Register<EntityEntry> event) {
-        event.getRegistry().registerAll(
-                EntityEntryBuilder.create().entity(Type18GrenadeEntity.class).id(Type18GrenadeEntity.ID, 0).name(Type18GrenadeEntity.NAME).tracker(256, 40, true).build()
-        );
-    }
-
-    @SubscribeEvent
-    public static void canEntityUpdate(EntityEvent.CanUpdate event) {
+    public void onEnteringChunk(EntityEvent.EnteringChunk event) {
         Entity entity = event.getEntity();
 
         if (entity instanceof Type18GrenadeEntity
-                && !entity.world.isRemote
-                && Type18GrenadeLauncherConfig.common.detonateWhenCannotUpdate
-                && !event.getCanUpdate()) {
+                && entity.world instanceof ServerWorld
+                && Type18GrenadeLauncherConfig.COMMON.detonateWhenCannotUpdate.get()
+                && !entity.world.getChunkProvider().isChunkLoaded(entity)) {
             // Grenade is entering unloaded chunk
             Type18GrenadeEntity grenadeEntity = (Type18GrenadeEntity) entity;
             // Detonate grenade
-            grenadeEntity.onImpact(new RayTraceResult(grenadeEntity));
+            grenadeEntity.onImpact(new EntityRayTraceResult(grenadeEntity));
         }
     }
 }

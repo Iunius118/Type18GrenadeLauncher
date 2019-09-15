@@ -1,9 +1,9 @@
 package com.github.iunius118.type18grenadelauncher.item;
 
 import com.github.iunius118.type18grenadelauncher.Type18GrenadeLauncher;
-import com.github.iunius118.type18grenadelauncher.Type18GrenadeLauncherConfig;
+import com.github.iunius118.type18grenadelauncher.config.Type18GrenadeLauncherConfig;
 import com.github.iunius118.type18grenadelauncher.entity.Type18GrenadeEntity;
-import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 
@@ -15,7 +15,7 @@ public class Type18Grenade51Item extends Type18GrenadeItem {
     }
 
     @Override
-    public Type18GrenadeEntity getEntity(World world, EntityLivingBase thrower) {
-        return new Type18GrenadeEntity(world, thrower, (float) Type18GrenadeLauncherConfig.common.grenade51mm.explosivePower);
+    public Type18GrenadeEntity getEntity(World world, LivingEntity thrower) {
+        return new Type18GrenadeEntity(thrower, world, Type18GrenadeLauncherConfig.COMMON.grenade51mm.explosivePower.get().floatValue());
     }
 }
