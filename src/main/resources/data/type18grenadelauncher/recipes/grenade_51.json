@@ -1,0 +1,31 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "forge:true"
+        }
+      ],
+      "recipe": {
+        "type": "minecraft:crafting_shaped",
+        "group": "type18grenadelauncher:grenade_51",
+        "pattern": [
+          "4",
+          "g"
+        ],
+        "key": {
+          "4": {
+            "item": "type18grenadelauncher:grenade_40"
+          },
+          "g": {
+            "tag": "forge:gunpowder"
+          }
+        },
+        "result": {
+          "item": "type18grenadelauncher:grenade_51"
+        }
+      }
+    }
+  ]
+}

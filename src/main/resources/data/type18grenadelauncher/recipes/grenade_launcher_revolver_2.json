@@ -1,0 +1,24 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "forge:true"
+        }
+      ],
+      "recipe": {
+        "type": "minecraft:crafting_shapeless",
+        "group": "type18grenadelauncher:grenade_launcher_revolver_2",
+        "ingredients": [
+          {
+            "item": "type18grenadelauncher:grenade_launcher_revolver"
+          }
+        ],
+        "result": {
+          "item": "type18grenadelauncher:grenade_launcher_revolver"
+        }
+      }
+    }
+  ]
+}

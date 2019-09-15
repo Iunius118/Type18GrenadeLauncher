@@ -1,0 +1,25 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "forge:true"
+        }
+      ],
+      "recipe": {
+        "type": "minecraft:crafting_shapeless",
+        "group": "type18grenadelauncher:grenade_40_2",
+        "ingredients": [
+          {
+            "item": "type18grenadelauncher:grenade_51"
+          }
+        ],
+        "result": {
+          "item": "type18grenadelauncher:grenade_40",
+          "count": 2
+        }
+      }
+    }
+  ]
+}

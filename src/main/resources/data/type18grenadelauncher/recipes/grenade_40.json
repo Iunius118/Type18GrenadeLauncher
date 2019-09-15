@@ -1,0 +1,36 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "forge:true"
+        }
+      ],
+      "recipe": {
+        "type": "minecraft:crafting_shaped",
+        "group": "type18grenadelauncher:grenade_40",
+        "pattern": [
+          "P",
+          "T",
+          "g"
+        ],
+        "key": {
+          "P": {
+            "item": "minecraft:heavy_weighted_pressure_plate"
+          },
+          "T": {
+            "item": "minecraft:tnt"
+          },
+          "g": {
+            "tag": "forge:gunpowder"
+          }
+        },
+        "result": {
+          "item": "type18grenadelauncher:grenade_40",
+          "count": 8
+        }
+      }
+    }
+  ]
+}

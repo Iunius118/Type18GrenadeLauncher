@@ -3,6 +3,7 @@ package com.github.iunius118.type18grenadelauncher;
 import com.github.iunius118.type18grenadelauncher.client.ClientEventHandler;
 import com.github.iunius118.type18grenadelauncher.client.renderer.entity.Type18GrenadeRenderer;
 import com.github.iunius118.type18grenadelauncher.config.Type18GrenadeLauncherConfig;
+import com.github.iunius118.type18grenadelauncher.data.Type18GrenadeLauncherDataGenerator;
 import com.github.iunius118.type18grenadelauncher.entity.Type18GrenadeEntity;
 import com.github.iunius118.type18grenadelauncher.item.*;
 import net.minecraft.data.DataGenerator;
@@ -122,6 +123,15 @@ public class Type18GrenadeLauncher {
             event.getRegistry().registerAll(
                     EntityTypes.GRENADE
             );
+        }
+
+        // Generate data
+        @SubscribeEvent
+        public static void gatherData(GatherDataEvent event) {
+            if (event.includeServer()) {
+                DataGenerator gen = event.getGenerator();
+                gen.addProvider(new Type18GrenadeLauncherDataGenerator.Recipes(gen));
+            }
         }
     }
 

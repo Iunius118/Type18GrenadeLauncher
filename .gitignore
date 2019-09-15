@@ -5,6 +5,9 @@
 # Exclude source
 !/src/
 
+# Ignore Data Generators' output
+/src/generated/
+
 # Exclude docs
 !/docs/
 
