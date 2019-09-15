@@ -8,7 +8,6 @@ import net.minecraft.data.RecipeProvider;
 import net.minecraft.data.ShapedRecipeBuilder;
 import net.minecraft.data.ShapelessRecipeBuilder;
 import net.minecraft.item.Items;
-import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.Tags;
 import net.minecraftforge.common.crafting.ConditionalRecipe;
 import net.minecraftforge.common.crafting.conditions.IConditionBuilder;
@@ -22,8 +21,6 @@ public class Type18GrenadeLauncherDataGenerator {
         }
 
         public void registerRecipes(Consumer<IFinishedRecipe> consumer) {
-            ResourceLocation ID = new ResourceLocation(Type18GrenadeLauncher.MOD_ID, "conditional");
-
             // HE 40 mm Grenade Cartridge
             ConditionalRecipe.builder()
                     .addCondition(TRUE())
