@@ -10,7 +10,7 @@ Type 18 Grenade Launcher（<ruby>18式擲弾銃mod<rp>／</rp><rt>ひとはち�
 
 ## ダウンロード
 
-- [v1.14.4-1.2.0.0 (Type18GrenadeLauncher-1.14.4-1.2.0.0.jar)](https://github.com/Iunius118/Type18GrenadeLauncher/releases/download/v1.14.4-1.2.0.0/Type18GrenadeLauncher-1.14.4-1.2.0.0.jar)
+- [v1.14.4-1.2.0.1 (Type18GrenadeLauncher-1.14.4-1.2.0.1.jar)](https://github.com/Iunius118/Type18GrenadeLauncher/releases/download/v1.14.4-1.2.0.1/Type18GrenadeLauncher-1.14.4-1.2.0.1.jar)
 
 ## 説明
 
