@@ -33,6 +33,7 @@ public class Type18GrenadeLauncherConfig {
         public BooleanValue detonateWhenCannotUpdate;
         public BooleanValue enableLog;
         public IntValue grenadeDamageLevel;
+        public BooleanValue debug;
 
         public final Type18Grenade40ItemConfig grenade40mm;
         public final Type18Grenade51ItemConfig grenade51mm;
@@ -56,6 +57,8 @@ public class Type18GrenadeLauncherConfig {
                     .comment("Set grenade's damage (0: none, 1: entities, 2: terrain and entities).")
                     .translation("type18grenadelauncher.configgui.grenadeDamageLevel")
                     .defineInRange("grenadeDamageLevel", 1, 0, 2);
+            debug = builder
+                    .define("debug", false);
 
             grenade40mm = new Type18Grenade40ItemConfig(builder);
             grenade51mm = new Type18Grenade51ItemConfig(builder);

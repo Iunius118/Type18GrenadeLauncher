@@ -69,7 +69,7 @@ public class Type18GrenadeEntity extends ThrowableEntity {
 
         ++this.ticksAge;
 
-        if (Type18GrenadeLauncher.DEBUG && !this.world.isRemote) {
+        if (Type18GrenadeLauncherConfig.COMMON.debug.get() && !this.world.isRemote) {
             // Server side
             this.printDebugLog();
         }

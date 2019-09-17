@@ -36,8 +36,6 @@ public class Type18GrenadeLauncher {
     public static final String MOD_ID = "type18grenadelauncher";
     public static final String MOD_NAME = "Type 18 Grenade Launcher";
 
-    public static final boolean DEBUG = true;
-
     public static final Logger LOGGER = LogManager.getLogger(MOD_NAME);
 
     public Type18GrenadeLauncher() {
