@@ -28,7 +28,7 @@
   "type18grenadelauncher.configgui.enableRecoil.tooltip": "Enable recoil of Grenade Launchers.",
   "type18grenadelauncher.configgui.enableRecoil": "Enable Recoil",
 
-  "type18grenadelauncher.configgui.sightHUD.color.tooltip": "Set value of color (A8R8G8B8 format in 32-bit signed integer) for gun sight.",
+  "type18grenadelauncher.configgui.sightHUD.color.tooltip": "Set value of color (ARGB8888 format in 32-bit signed integer) for gun sight.",
   "type18grenadelauncher.configgui.sightHUD.color": "Color",
   "type18grenadelauncher.configgui.sightHUD.listAngles.tooltip": "Set values of angles in degrees for gun sight.",
   "type18grenadelauncher.configgui.sightHUD.listAngles": "List of Angles",
@@ -41,6 +41,8 @@
   "type18grenadelauncher.configgui.enableLog": "Enable Log",
   "type18grenadelauncher.configgui.grenadeDamageLevel.tooltip": "Set grenade's damage (0: none, 1: entities, 2: terrain and entities).",
   "type18grenadelauncher.configgui.grenadeDamageLevel": "Grenade Damage Level",
+  "type18grenadelauncher.configgui.goThroughZeroHardnessBlocks.tooltip": "Grenades go through the blocks which have zero hardness.",
+  "type18grenadelauncher.configgui.goThroughZeroHardnessBlocks": "Go Through Zero Hardness Blocks",
 
   "type18grenadelauncher.configgui.grenade40.power.tooltip": "Set explosive power of HE 40 mm Grenade Cartridge.",
   "type18grenadelauncher.configgui.grenade40.power": "Explosive Power",

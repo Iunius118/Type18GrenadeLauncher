@@ -2,6 +2,7 @@ package com.github.iunius118.type18grenadelauncher.entity;
 
 import com.github.iunius118.type18grenadelauncher.Type18GrenadeLauncher;
 import com.github.iunius118.type18grenadelauncher.config.Type18GrenadeLauncherConfig;
+import net.minecraft.block.BlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
@@ -94,17 +95,21 @@ public class Type18GrenadeEntity extends ThrowableEntity {
     public void onImpact(RayTraceResult result) {
         if (!this.world.isRemote) {
             // Server side
-            ServerWorld world = (ServerWorld) this.world;
+            ServerWorld serverWorld = (ServerWorld) this.world;
             Vec3d hitVec = result.getHitVec();
 
-            if (this.ticksAge > FUSE_SAFETY) {
+            if (Type18GrenadeLauncherConfig.COMMON.goThroughZeroHardnessBlocks.get()
+                    && impactsOnZeroHardnessBlock(world, result)) {
+                // Grenade goes through zero hardness block
+
+            } else if (this.ticksAge > FUSE_SAFETY) {
                 // Create explosion visual and sound effects
-                spawnExplosionParticleFromServer(world, hitVec);
-                world.playSound(null, this.posX, this.posY, this.posZ, SoundEvents.ENTITY_GENERIC_EXPLODE, SoundCategory.BLOCKS, 4.0F, (1.0F + (this.world.rand.nextFloat() - this.world.rand.nextFloat()) * 0.2F) * 0.7F);
+                spawnExplosionParticleFromServer(serverWorld, hitVec);
+                serverWorld.playSound(null, this.posX, this.posY, this.posZ, SoundEvents.ENTITY_GENERIC_EXPLODE, SoundCategory.BLOCKS, 4.0F, (1.0F + (this.world.rand.nextFloat() - this.world.rand.nextFloat()) * 0.2F) * 0.7F);
 
                 if (this.isPermittedDamage(DamageLevel.ENTITY) && power > 0.0F) {
                     // Create explosion
-                    Explosion explosion = world.createExplosion(this.getThrower(), hitVec.x, hitVec.y + (double) (this.getHeight() / 2.0F), hitVec.z, this.power, this.isPermittedDamage(DamageLevel.TERRAIN) ? Explosion.Mode.BREAK : Explosion.Mode.NONE);
+                    Explosion explosion = serverWorld.createExplosion(this.getThrower(), hitVec.x, hitVec.y + (double) (this.getHeight() / 2.0F), hitVec.z, this.power, this.isPermittedDamage(DamageLevel.TERRAIN) ? Explosion.Mode.BREAK : Explosion.Mode.NONE);
                 }
 
                 this.remove();
@@ -137,6 +142,12 @@ public class Type18GrenadeEntity extends ThrowableEntity {
                 }
 
             } else {
+                if (Type18GrenadeLauncherConfig.COMMON.goThroughZeroHardnessBlocks.get()
+                        && impactsOnZeroHardnessBlock(world, result)) {
+                    // Grenade goes through zero hardness block
+                    return;
+                }
+
                 this.remove();
             }
         }
@@ -208,6 +219,20 @@ public class Type18GrenadeEntity extends ThrowableEntity {
         NONE,
         ENTITY,
         TERRAIN
+    }
+
+    public static boolean impactsOnZeroHardnessBlock(World worldIn, RayTraceResult result) {
+        if (result.getType() == RayTraceResult.Type.BLOCK) {
+            BlockPos pos = ((BlockRayTraceResult) result).getPos();
+            BlockState blockstate = worldIn.getBlockState(pos);
+            float hardness = blockstate.getBlockHardness(worldIn, pos);
+
+            if (hardness < 0.1F) {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     public static boolean isPermittedDamage(DamageLevel level) {

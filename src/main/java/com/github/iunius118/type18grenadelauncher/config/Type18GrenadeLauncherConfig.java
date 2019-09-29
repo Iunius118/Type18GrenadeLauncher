@@ -33,6 +33,7 @@ public class Type18GrenadeLauncherConfig {
         public BooleanValue detonateWhenCannotUpdate;
         public BooleanValue enableLog;
         public IntValue grenadeDamageLevel;
+        public BooleanValue goThroughZeroHardnessBlocks;
         public BooleanValue debug;
 
         public final Type18Grenade40ItemConfig grenade40mm;
@@ -57,6 +58,10 @@ public class Type18GrenadeLauncherConfig {
                     .comment("Set grenade's damage (0: none, 1: entities, 2: terrain and entities).")
                     .translation("type18grenadelauncher.configgui.grenadeDamageLevel")
                     .defineInRange("grenadeDamageLevel", 1, 0, 2);
+            goThroughZeroHardnessBlocks = builder
+                    .comment("Grenades go through the blocks which have zero hardness.")
+                    .translation("type18grenadelauncher.configgui.goThroughZeroHardnessBlocks")
+                    .define("goThroughZeroHardnessBlocks", true);
             debug = builder
                     .define("debug", false);
 
@@ -191,7 +196,7 @@ public class Type18GrenadeLauncherConfig {
                         .push("sightHUD");
 
                 color = builder
-                        .comment("Set value of color (A8R8G8B8 format in 32-bit signed integer) for gun sight.")
+                        .comment("Set value of color (ARGB8888 format in 32-bit signed integer) for gun sight.")
                         .translation("type18grenadelauncher.configgui.sightHUD.color")
                         .defineInRange("color", -1, Integer.MIN_VALUE, Integer.MAX_VALUE);
 

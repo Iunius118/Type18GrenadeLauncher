@@ -28,7 +28,7 @@
   "type18grenadelauncher.configgui.enableRecoil.tooltip": "てき弾銃のリコイルを無効にする。",
   "type18grenadelauncher.configgui.enableRecoil": "リコイルを有効化",
 
-  "type18grenadelauncher.configgui.sightHUD.color.tooltip": "照準器の描画色をA8R8G8B8フォーマットの32ビット符号付き整数で指定する。",
+  "type18grenadelauncher.configgui.sightHUD.color.tooltip": "照準器の描画色をARGB8888フォーマットの32ビット符号付き整数で指定する。",
   "type18grenadelauncher.configgui.sightHUD.color": "描画色",
   "type18grenadelauncher.configgui.sightHUD.listAngles.tooltip": "照準器に表示する射角（度）のリスト",
   "type18grenadelauncher.configgui.sightHUD.listAngles": "角度のリスト",
@@ -41,6 +41,8 @@
   "type18grenadelauncher.configgui.enableLog": "ログ出力",
   "type18grenadelauncher.configgui.grenadeDamageLevel.tooltip": "榴弾が破壊可能な対象を数字で指定する（0：なし、1：エンティティのみ、2：地形とエンティティ）。",
   "type18grenadelauncher.configgui.grenadeDamageLevel": "榴弾の破壊能力",
+  "type18grenadelauncher.configgui.goThroughZeroHardnessBlocks.tooltip": "榴弾が硬度0のブロックを通過する。",
+  "type18grenadelauncher.configgui.goThroughZeroHardnessBlocks": "硬度0ブロックを通過",
 
   "type18grenadelauncher.configgui.grenade40.power.tooltip": "40mmりゅう弾の爆発力を設定する。",
   "type18grenadelauncher.configgui.grenade40.power": "爆発力",
