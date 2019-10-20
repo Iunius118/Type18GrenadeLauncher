@@ -8,6 +8,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
+import net.minecraft.tags.FluidTags;
 import net.minecraft.util.*;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
@@ -124,7 +125,7 @@ public class Type18GrenadeLauncherItem extends Item {
     }
 
     public boolean canLaunch(World worldIn, PlayerEntity playerIn, Hand handIn) {
-        return true;
+        return !(playerIn.areEyesInFluid(FluidTags.WATER) || playerIn.areEyesInFluid(FluidTags.LAVA));
     }
 
     public float getInaccuracy(World worldIn, PlayerEntity playerIn, Hand handIn) {

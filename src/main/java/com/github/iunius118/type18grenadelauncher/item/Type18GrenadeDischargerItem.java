@@ -33,7 +33,7 @@ public class Type18GrenadeDischargerItem extends Type18GrenadeLauncherItem {
 
     @Override
     public boolean canLaunch(World worldIn, PlayerEntity playerIn, Hand handIn) {
-        return playerIn.isSneaking() && playerIn.onGround;
+        return super.canLaunch(worldIn, playerIn, handIn) && playerIn.isSneaking() && playerIn.onGround;
     }
 
     @Override
