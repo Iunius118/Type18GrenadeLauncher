@@ -18,6 +18,8 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.SoundEvents;
 import net.minecraft.util.math.*;
+import net.minecraft.util.math.shapes.VoxelShape;
+import net.minecraft.util.math.shapes.VoxelShapes;
 import net.minecraft.world.Explosion;
 import net.minecraft.world.World;
 import net.minecraft.world.server.ServerWorld;
@@ -221,14 +223,15 @@ public class Type18GrenadeEntity extends ThrowableEntity {
         TERRAIN
     }
 
-    public static boolean impactsOnZeroHardnessBlock(World worldIn, RayTraceResult result) {
+    private static boolean impactsOnZeroHardnessBlock(World worldIn, RayTraceResult result) {
         if (result.getType() == RayTraceResult.Type.BLOCK) {
             BlockPos pos = ((BlockRayTraceResult) result).getPos();
             BlockState blockstate = worldIn.getBlockState(pos);
             float hardness = blockstate.getBlockHardness(worldIn, pos);
 
             if (hardness < 0.1F) {
-                return true;
+                VoxelShape shape = blockstate.getCollisionShape(worldIn, pos);
+                return shape == VoxelShapes.empty();
             }
         }
 
@@ -237,19 +240,14 @@ public class Type18GrenadeEntity extends ThrowableEntity {
 
     public static boolean isPermittedDamage(DamageLevel level) {
         int permittedLevel = Type18GrenadeLauncherConfig.COMMON.grenadeDamageLevel.get();
-
-        if (level.ordinal() <= permittedLevel) {
-            return true;
-        }
-
-        return false;
+        return level.ordinal() <= permittedLevel;
     }
 
     public float getInitialVelocity() {
         return INITIAL_VELOCITY;
     }
 
-    public void logInfo(String type, Vec3d pos) {
+    private void logInfo(String type, Vec3d pos) {
         if (Type18GrenadeLauncherConfig.COMMON.enableLog.get()) {
             Type18GrenadeLauncher.LOGGER.info("{} #{} [{}] at {}, launched by {}", NAME, this.getUniqueID(), type, pos.toString(), this.throwerName);
         }
@@ -261,7 +259,7 @@ public class Type18GrenadeEntity extends ThrowableEntity {
         }
     }
 
-    public void printDebugLog() {
+    private void printDebugLog() {
         Type18GrenadeLauncher.LOGGER.info("{}, T: {}, P: {}, V: {}, S: {}",
                 NAME, this.ticksAge, this.getPositionVector().toString(), this.getMotion().length(), power
         );

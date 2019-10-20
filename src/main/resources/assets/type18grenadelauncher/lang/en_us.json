@@ -41,7 +41,7 @@
   "type18grenadelauncher.configgui.enableLog": "Enable Log",
   "type18grenadelauncher.configgui.grenadeDamageLevel.tooltip": "Set grenade's damage (0: none, 1: entities, 2: terrain and entities).",
   "type18grenadelauncher.configgui.grenadeDamageLevel": "Grenade Damage Level",
-  "type18grenadelauncher.configgui.goThroughZeroHardnessBlocks.tooltip": "Grenades go through the blocks which have zero hardness.",
+  "type18grenadelauncher.configgui.goThroughZeroHardnessBlocks.tooltip": "Grenades go through the blocks which have zero hardness and no collidable shape.",
   "type18grenadelauncher.configgui.goThroughZeroHardnessBlocks": "Go Through Zero Hardness Blocks",
 
   "type18grenadelauncher.configgui.grenade40.power.tooltip": "Set explosive power of HE 40 mm Grenade Cartridge.",

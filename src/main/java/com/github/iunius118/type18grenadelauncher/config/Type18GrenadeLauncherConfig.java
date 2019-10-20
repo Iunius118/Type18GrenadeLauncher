@@ -59,7 +59,7 @@ public class Type18GrenadeLauncherConfig {
                     .translation("type18grenadelauncher.configgui.grenadeDamageLevel")
                     .defineInRange("grenadeDamageLevel", 1, 0, 2);
             goThroughZeroHardnessBlocks = builder
-                    .comment("Grenades go through the blocks which have zero hardness.")
+                    .comment("Grenades go through the blocks which have zero hardness and no collidable shape.")
                     .translation("type18grenadelauncher.configgui.goThroughZeroHardnessBlocks")
                     .define("goThroughZeroHardnessBlocks", true);
             debug = builder
