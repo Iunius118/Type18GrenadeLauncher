@@ -4,7 +4,7 @@ Add grenade launchers and their ammunition to Minecraft with Forge.
 
 ## Release
 
-- [v1.14.4-1.2.1.0](https://github.com/Iunius118/Type18GrenadeLauncher/releases/tag/v1.14.4-1.2.1.0)
+- [v1.14.4-1.2.1.1](https://github.com/Iunius118/Type18GrenadeLauncher/releases/tag/v1.14.4-1.2.1.1)
 - [v1.12.2-1.1.2.0](https://github.com/Iunius118/Type18GrenadeLauncher/releases/tag/v1.12.2-1.1.2.0) ([README](https://github.com/Iunius118/Type18GrenadeLauncher/blob/1.12.2/README.md))
 
 ## Description

@@ -10,9 +10,10 @@ Type 18 Grenade Launcher（<ruby>18式擲弾銃mod<rp>／</rp><rt>ひとはち�
 
 ## ダウンロード
 
-[**v1.14.4-1.2.1.0 (Type18GrenadeLauncher-1.14.4-1.2.1.0.jar)**](https://github.com/Iunius118/Type18GrenadeLauncher/releases/download/v1.14.4-1.2.1.0/Type18GrenadeLauncher-1.14.4-1.2.1.0.jar)
+[**v1.14.4-1.2.1.1 (Type18GrenadeLauncher-1.14.4-1.2.1.1.jar)**](https://github.com/Iunius118/Type18GrenadeLauncher/releases/download/v1.14.4-1.2.1.1/Type18GrenadeLauncher-1.14.4-1.2.1.1.jar)
 
-- 榴弾が硬さ0のブロックを通過できるように変更（コンフィグで無効化も可能）
+- 榴弾が通過できる硬さ0のブロックを当たり判定のないものに限定
+- グレネードランチャーが水中で発射できないように修正
 
 ## 説明
 
@@ -103,7 +104,7 @@ Type 18 Grenade Launcher（<ruby>18式擲弾銃mod<rp>／</rp><rt>ひとはち�
   - 榴弾が攻撃可能な対象を数字で指定します
   - `0`：なし、`1`：エンティティのみ、`2`：地形とエンティティ
 - **goThroughZeroHardnessBlocks** (真偽値、デフォルトは`true`)
-  - 榴弾が硬さ0のブロックを通過できるようになります
+  - 榴弾が硬さ0の当たり判定の無いブロックを通過できるようになります
   - `true`：通過する、`false`：通過しない（当たり判定になります）
 
 #### [common.grenade40mm]
@@ -157,6 +158,11 @@ Type 18 Grenade Launcher（<ruby>18式擲弾銃mod<rp>／</rp><rt>ひとはち�
   - 照準器に表示する射角に対応した距離のリストを指定します
 
 ## 更新履歴
+
+### v1.14.4-1.2.1.1
+
+- 榴弾が通過できる硬さ0のブロックを当たり判定のないものに限定
+- グレネードランチャーが水中で発射できないように修正
 
 ### v1.14.4-1.2.1.0
 
