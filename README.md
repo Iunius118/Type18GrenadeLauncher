@@ -4,12 +4,12 @@ Add grenade launchers and their ammunition to Minecraft with Forge.
 
 ## Release
 
-- [v1.14.4-1.2.1.1](https://github.com/Iunius118/Type18GrenadeLauncher/releases/tag/v1.14.4-1.2.1.1)
+- [v1.14.4-1.2.2.0](https://github.com/Iunius118/Type18GrenadeLauncher/releases/tag/v1.14.4-1.2.2.0)
 - [v1.12.2-1.1.2.0](https://github.com/Iunius118/Type18GrenadeLauncher/releases/tag/v1.12.2-1.1.2.0) ([README](https://github.com/Iunius118/Type18GrenadeLauncher/blob/1.12.2/README.md))
 
 ## Description
 
-- v1.14.4-1.2.0.0+
+- v1.14.4-1.2.2.0+
 
 ### Grenade Launchers
 
@@ -30,6 +30,7 @@ Gun sight will be displayed on HUD when holding Grenade Launcher on hand and sne
 <img src="docs/img/recipe_grenade_launcher_revolver.png" title="Recipe: 40 mm Revolver Grenade Launcher">
 
 - **Crafting:** 8 *Iron Ingots* + 1 *40 mm Grenade Launcher* → 1 *40 mm Revolver Grenade Launcher*
+- **Crafting (Tactical Reload):** 1 *40 mm Revolver Grenade Launcher* → 1 *40 mm Revolver Grenade Launcher*
 - **Ammo:** *HE 40 mm Grenade Cartridge*
 - **Magazine:** Six-round revolver-type cylinder (Ammo is consumed when shot)
 - **Launch:** Right Click

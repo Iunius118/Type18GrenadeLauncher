@@ -10,10 +10,10 @@ Type 18 Grenade Launcher（<ruby>18式擲弾銃mod<rp>／</rp><rt>ひとはち�
 
 ## ダウンロード
 
-[**v1.14.4-1.2.1.1 (Type18GrenadeLauncher-1.14.4-1.2.1.1.jar)**](https://github.com/Iunius118/Type18GrenadeLauncher/releases/download/v1.14.4-1.2.1.1/Type18GrenadeLauncher-1.14.4-1.2.1.1.jar)
+[**v1.14.4-1.2.2.0 (Type18GrenadeLauncher-1.14.4-1.2.2.0.jar)**](https://github.com/Iunius118/Type18GrenadeLauncher/releases/download/v1.14.4-1.2.2.0/Type18GrenadeLauncher-1.14.4-1.2.2.0.jar)
 
-- 榴弾が通過できる硬さ0のブロックを当たり判定のないものに限定
-- グレネードランチャーが水中で発射できないように修正
+- 40mm回転式てき弾銃をタクティカルリロードしたときに元の表示名などを引き継ぐように変更
+- 特定のアイテムを入手したときにレシピブックにレシピを追加するための実績を追加
 
 ## 説明
 
@@ -40,6 +40,7 @@ Type 18 Grenade Launcher（<ruby>18式擲弾銃mod<rp>／</rp><rt>ひとはち�
 <img src="img/recipe_grenade_launcher_revolver.png" title="レシピ：40mm回転式てき弾銃">
 
 - **クラフト：** 鉄インゴット×8 + 40mmてき弾銃 → 40mm回転式てき弾銃
+- **クラフト（タクティカルリロード）：** 40mm回転式てき弾銃 → 40mm回転式てき弾銃
 - **弾薬：** 40mmりゅう弾
 - **弾倉：** 6発、回転式シリンダー（弾薬アイテムは発射時に消費されます）
 - **発射：** 右クリック
@@ -159,6 +160,11 @@ Type 18 Grenade Launcher（<ruby>18式擲弾銃mod<rp>／</rp><rt>ひとはち�
 
 ## 更新履歴
 
+### v1.14.4-1.2.2.0
+
+- 40mm回転式てき弾銃をタクティカルリロードしたときに元の表示名などを引き継ぐように変更
+- 特定のアイテムを入手したときにレシピブックにレシピを追加するための実績を追加
+
 ### v1.14.4-1.2.1.1
 
 - 榴弾が通過できる硬さ0のブロックを当たり判定のないものに限定
@@ -199,3 +205,6 @@ Type 18 Grenade Launcher（<ruby>18式擲弾銃mod<rp>／</rp><rt>ひとはち�
 ### v1.12.2-1.0.0.0
 
 - 公開
+
+---
+Copyright (c) 2019 Iunius118
