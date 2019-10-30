@@ -8,6 +8,7 @@ import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.util.Hand;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
+import net.minecraftforge.event.entity.player.PlayerEvent;
 
 public class Type18RevolverGrenadeLauncherItem extends Type18GrenadeLauncherItem {
     public static final ResourceLocation ID = new ResourceLocation(Type18GrenadeLauncher.MOD_ID, "grenade_launcher_revolver");
@@ -20,6 +21,26 @@ public class Type18RevolverGrenadeLauncherItem extends Type18GrenadeLauncherItem
         super.onCreated(stack, worldIn, playerIn);
 
         playerIn.getCooldownTracker().setCooldown(stack.getItem(), Type18GrenadeLauncherConfig.COMMON.launcher40mmRevolver.reloadingCoolDown.get());
+    }
+
+    public void onCrafting(PlayerEvent.ItemCraftedEvent event) {
+        int invSize = event.getInventory().getSizeInventory();
+
+        for (int i = 0; i < invSize; i++) {
+            ItemStack stack = event.getInventory().getStackInSlot(i);
+
+            if (stack.getItem() == this) {
+                // Tactical Reload
+                if (stack.hasTag()) {
+                    // Copy and Set tags, and reload
+                    CompoundNBT tag = stack.getTag().copy();
+                    tag.putInt(TAG_SHOT_COUNT, 0);
+                    event.getCrafting().setTag(tag);
+                }
+
+                break;
+            }
+        }
     }
 
     @Override
