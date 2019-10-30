@@ -3,10 +3,7 @@ package com.github.iunius118.type18grenadelauncher.data;
 import com.github.iunius118.type18grenadelauncher.Type18GrenadeLauncher;
 import com.github.iunius118.type18grenadelauncher.item.*;
 import net.minecraft.block.Blocks;
-import net.minecraft.data.IFinishedRecipe;
-import net.minecraft.data.RecipeProvider;
-import net.minecraft.data.ShapedRecipeBuilder;
-import net.minecraft.data.ShapelessRecipeBuilder;
+import net.minecraft.data.*;
 import net.minecraft.item.Items;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.Tags;
@@ -16,7 +13,7 @@ import java.util.function.Consumer;
 
 public class Type18GrenadeLauncherDataGenerator {
     public static class Recipes extends RecipeProvider implements IConditionBuilder {
-        public Recipes(net.minecraft.data.DataGenerator generatorIn) {
+        public Recipes(DataGenerator generatorIn) {
             super(generatorIn);
         }
 
