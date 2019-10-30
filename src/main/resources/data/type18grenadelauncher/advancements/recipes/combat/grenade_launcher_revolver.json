@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "type18grenadelauncher:grenade_launcher_revolver"
+    ]
+  },
+  "criteria": {
+    "has_type18grenadelauncher:grenade_launcher": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "type18grenadelauncher:grenade_launcher"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "type18grenadelauncher:grenade_launcher_revolver"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_type18grenadelauncher:grenade_launcher",
+      "has_the_recipe"
+    ]
+  ]
+}

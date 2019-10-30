@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "type18grenadelauncher:grenade_40_2"
+    ]
+  },
+  "criteria": {
+    "has_type18grenadelauncher:grenade_51": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "type18grenadelauncher:grenade_51"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "type18grenadelauncher:grenade_40_2"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_type18grenadelauncher:grenade_51",
+      "has_the_recipe"
+    ]
+  ]
+}
