@@ -13,13 +13,13 @@ credits="Iunius118"
 authors="Iunius118"
 description="Adds grenade launchers and their ammunition."
 
-[[dependencies.tolaserblade]]
+[[dependencies.type18grenadelauncher]]
     modId="forge"
     mandatory=true
     versionRange="[28,)"
     ordering="NONE"
     side="BOTH"
-[[dependencies.tolaserblade]]
+[[dependencies.type18grenadelauncher]]
     modId="minecraft"
     mandatory=true
     versionRange="[1.14.4]"
